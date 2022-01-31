@@ -18,9 +18,6 @@ if (has("termguicolors"))
 	set termguicolors
 endif
 
-
-let g:numbers_exclude = ['unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m', 'NvimTree', 'Telescope']
-
 let path = '~/.config/nvim/config/'
 exec 'source' path . 'plugins.vim'
 exec 'source' path . 'mappings.vim'

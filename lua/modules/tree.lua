@@ -10,7 +10,6 @@ local view = require('nvim-tree.view')
         require'nvim-tree'.open()
     end
 end
-vim.api.nvim_set_keymap('n', '<A-m>', ":lua require('modules/tree').toggle_tree()<CR>", {noremap = true, silent = true})    
+vim.api.nvim_set_keymap('n', '<A-m>', ":lua require('modules/tree').toggle_tree()<CR>", {noremap = true, silent = true})
 
-■ Undefined global `vim`.
 return tab
