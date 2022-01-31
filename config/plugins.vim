@@ -40,9 +40,6 @@ Plug 'mboughaba/i3config.vim'
 " Better quick fix "
 Plug 'kevinhwang91/nvim-bqf' 
 
-" Lines "
-Plug 'myusuf3/numbers.vim'
-
 " fuzzy finder "
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'

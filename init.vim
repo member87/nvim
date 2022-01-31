@@ -2,6 +2,13 @@ set autoindent
 set noexpandtab
 set tabstop=2
 set shiftwidth=2
+set clipboard=unnamedplus
+set ignorecase
+set mouse=a
+set smartindent
+set relativenumber
+set cursorline
+
 
 if (has("nvim"))
 	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -24,6 +31,7 @@ lua vim.notify = require("notify")
 
 syntax on
 colorscheme base16-material-darker
+hi LineNr guifg=#4a4a4a
 
 set completeopt=menuone,noselect
 
