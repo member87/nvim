@@ -1,6 +1,6 @@
 require('lualine').setup {
 	options = {
-		theme = 'vscode',
+		theme = 'codedark',
 		disabled_filetypes = {},
 		component_separators = '',
 		section_separators = '',

@@ -23,9 +23,7 @@ lua vim.notify = require("notify")
 
 
 syntax on
-let g:vscode_style = "dark"
-let g:vscode_italic_comment = 1
-colorscheme vscode
+colorscheme base16-material-darker
 
 set completeopt=menuone,noselect
 
