@@ -32,7 +32,7 @@ Plug 'tanvirtin/vgit.nvim'
 Plug 'rcarriga/nvim-notify'
 
 " Colors
-Plug 'chrisbra/Colorizer'
+Plug 'norcalli/nvim-colorizer.lua'
 
 " I3 config Colors
 Plug 'mboughaba/i3config.vim'
