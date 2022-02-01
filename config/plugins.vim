@@ -39,6 +39,7 @@ Plug 'mboughaba/i3config.vim'
 
 " Better quick fix "
 Plug 'kevinhwang91/nvim-bqf' 
+Plug 'junegunn/fzf'
 
 " fuzzy finder "
 Plug 'nvim-lua/plenary.nvim'
