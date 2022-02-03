@@ -1,3 +1,6 @@
+local M = {}
+
+function M.config()
 local cmp = require'cmp'
 
 cmp.setup({
@@ -114,4 +117,7 @@ require('lspconfig').sumneko_lua.setup{
         }
     }
 }
+end
+
+return M
 
