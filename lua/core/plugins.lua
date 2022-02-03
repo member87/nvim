@@ -2,141 +2,141 @@ local M = {}
 
 local packer_status_ok, packer = pcall(require, 'packer')
 if not packer_status_ok then
-	return
+  return
 end
 
 packer.startup {
-	function(use)
+  function(use)
 
-		-- Plugin manger
-		use {
-			'wbthomason/packer.nvim'
-		}
+    -- Plugin manger
+    use {
+      'wbthomason/packer.nvim'
+    }
 
-		-- Lua functions
-		use {
-			'nvim-lua/plenary.nvim',
-		}
+    -- Lua functions
+    use {
+      'nvim-lua/plenary.nvim',
+    }
 
-		-- builtin lsp
-		use {
-			'neovim/nvim-lspconfig'
-		}
+    -- builtin lsp
+    use {
+      'neovim/nvim-lspconfig'
+    }
 
-		use {
-			'hrsh7th/nvim-cmp',
-			event = 'BufRead',
-			config = function()
-				require('configs.cmp').config()
-			end,
-		}
-
-
-		-- LSP completion source
-		use {
-			'hrsh7th/cmp-nvim-lsp',
-		}
-
-		-- Buffer completion source
-		use {
-			'hrsh7th/cmp-buffer',
-			after = 'nvim-cmp',
-		}
-
-		-- Path completion source
-		use {
-			'hrsh7th/cmp-path',
-			after = 'nvim-cmp',
-		}
-
-		-- Command line completion source
-		use {
-			'hrsh7th/cmp-cmdline',
-			after = 'nvim-cmp',
-		}
-
-		-- LSP signature
-		use {
-			'ray-x/lsp_signature.nvim',
-			after = 'nvim-cmp',
-		}
-
-		-- Snippet engine
-		use {
-			'hrsh7th/vim-vsnip',
-			requires = {
-				-- Snippet collections
-				'rafamadriz/friendly-snippets',
-			},
-		}
-
-		-- Snippet completion source
-		use {
-			'hrsh7th/cmp-vsnip',
-			after = 'nvim-cmp',
-		}
+    use {
+      'hrsh7th/nvim-cmp',
+      event = 'BufRead',
+      config = function()
+        require('configs.cmp').config()
+      end,
+    }
 
 
-		-- Syntax highlighting
-		use {
-			'nvim-treesitter/nvim-treesitter',
-			run = ':TSUpdate',
-			event = 'BufRead',
-			cmd = {
-				'TSInstall',
-				'TSInstallInfo',
-				'TSInstallSync',
-				'TSUninstall',
-				'TSUpdate',
-				'TSUpdateSync',
-				'TSDisableAll',
-				'TSEnableAll',
-			},
-			config = function()
-				require('configs.treesitter').config()
-			end,
-			requires = {
-				{
-					-- Parenthesis highlighting
-					'p00f/nvim-ts-rainbow',
-					after = 'nvim-treesitter',
-				},
-				{
-					-- Autoclose tags
-					'windwp/nvim-ts-autotag',
-					after = 'nvim-treesitter',
-				},
-				{
-					-- Context based commenting
-					'JoosepAlviste/nvim-ts-context-commentstring',
-					after = 'nvim-treesitter',
-				},
-			},
-		}
+    -- LSP completion source
+    use {
+      'hrsh7th/cmp-nvim-lsp',
+    }
 
-		-- Git intergration
-		use {
-			'tanvirtin/vgit.nvim',
-			requires = {
-				'nvim-lua/plenary.nvim'
-			},
+    -- Buffer completion source
+    use {
+      'hrsh7th/cmp-buffer',
+      after = 'nvim-cmp',
+    }
+
+    -- Path completion source
+    use {
+      'hrsh7th/cmp-path',
+      after = 'nvim-cmp',
+    }
+
+    -- Command line completion source
+    use {
+      'hrsh7th/cmp-cmdline',
+      after = 'nvim-cmp',
+    }
+
+    -- LSP signature
+    use {
+      'ray-x/lsp_signature.nvim',
+      after = 'nvim-cmp',
+    }
+
+    -- Snippet engine
+    use {
+      'hrsh7th/vim-vsnip',
+      requires = {
+        -- Snippet collections
+        'rafamadriz/friendly-snippets',
+      },
+    }
+
+    -- Snippet completion source
+    use {
+      'hrsh7th/cmp-vsnip',
+      after = 'nvim-cmp',
+    }
+
+
+    -- Syntax highlighting
+    use {
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate',
+      event = 'BufRead',
+      cmd = {
+        'TSInstall',
+        'TSInstallInfo',
+        'TSInstallSync',
+        'TSUninstall',
+        'TSUpdate',
+        'TSUpdateSync',
+        'TSDisableAll',
+        'TSEnableAll',
+      },
+      config = function()
+        require('configs.treesitter').config()
+      end,
+      requires = {
+        {
+          -- Parenthesis highlighting
+          'p00f/nvim-ts-rainbow',
+          after = 'nvim-treesitter',
+        },
+        {
+          -- Autoclose tags
+          'windwp/nvim-ts-autotag',
+          after = 'nvim-treesitter',
+        },
+        {
+          -- Context based commenting
+          'JoosepAlviste/nvim-ts-context-commentstring',
+          after = 'nvim-treesitter',
+        },
+      },
+    }
+
+    -- Git intergration
+    use {
+      'tanvirtin/vgit.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim'
+      },
       config = function()
         require('configs.vgit')
       end
-		}
+    }
 
 
-		-- Notifications
-		use {
-			'rcarriga/nvim-notify',
+    -- Notifications
+    use {
+      'rcarriga/nvim-notify',
       config = function()
         vim.notify = require("notify")
       end
-		}
+    }
 
 
-		-- Highlight colours
-		use {
+    -- Highlight colours
+    use {
       'norcalli/nvim-colorizer.lua',
       config = function()
         require('configs.colorizer')
