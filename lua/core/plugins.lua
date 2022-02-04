@@ -27,7 +27,7 @@ packer.startup {
       'hrsh7th/nvim-cmp',
       event = 'BufRead',
       config = function()
-        require('configs.cmp').config()
+        require('configs.cmp-nvim').config()
       end,
     }
 
@@ -101,17 +101,16 @@ packer.startup {
           'p00f/nvim-ts-rainbow',
           after = 'nvim-treesitter',
         },
-        {
-          -- Autoclose tags
-          'windwp/nvim-ts-autotag',
-          after = 'nvim-treesitter',
-        },
-        {
-          -- Context based commenting
-          'JoosepAlviste/nvim-ts-context-commentstring',
-          after = 'nvim-treesitter',
-        },
       },
+    }
+
+
+    -- Auto pairs
+    use {
+      'windwp/nvim-autopairs',
+      config = function()
+        require('nvim-autopairs').setup{}
+      end
     }
 
     -- Git intergration
@@ -121,7 +120,7 @@ packer.startup {
         'nvim-lua/plenary.nvim'
       },
       config = function()
-        require('configs.vgit')
+        require('configs.vgit-nvim').config()
       end
     }
 
@@ -148,6 +147,16 @@ packer.startup {
     -- Better quick fix
     use {
       'kevinhwang91/nvim-bqf'
+    }
+
+
+    -- Document Generator
+    use {
+      'kkoomen/vim-doge',
+      run = ':call doge#install()',
+      config = function()
+        require('configs.doge-nvim')
+      end
     }
 
     -- File finder
@@ -207,10 +216,15 @@ packer.startup {
 
     -- Start screen
     use {
-      "glepnir/dashboard-nvim",
+      'glepnir/dashboard-nvim',
       config = function()
         -- require("configs.dashboard").config()
       end,
+    }
+
+    -- Symbols outline
+    use {
+      'simrat39/symbols-outline.nvim'
     }
   end
 }
