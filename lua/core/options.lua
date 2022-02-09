@@ -13,6 +13,7 @@ set.mouse="a"
 set.smartindent = true
 set.smarttab = true
 set.relativenumber = true
+set.number = true
 set.cursorline = true
 
 return M
