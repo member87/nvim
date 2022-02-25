@@ -20,14 +20,16 @@ packer.startup {
 
     -- builtin lsp
     use {
-      'neovim/nvim-lspconfig'
+      'neovim/nvim-lspconfig',
+      'williamboman/nvim-lsp-installer',
     }
+
 
     use {
       'hrsh7th/nvim-cmp',
       event = 'BufRead',
       config = function()
-        require('configs.cmp').config()
+        require('configs.cmp-nvim').config()
       end,
     }
 
@@ -101,17 +103,16 @@ packer.startup {
           'p00f/nvim-ts-rainbow',
           after = 'nvim-treesitter',
         },
-        {
-          -- Autoclose tags
-          'windwp/nvim-ts-autotag',
-          after = 'nvim-treesitter',
-        },
-        {
-          -- Context based commenting
-          'JoosepAlviste/nvim-ts-context-commentstring',
-          after = 'nvim-treesitter',
-        },
       },
+    }
+
+
+    -- Auto pairs
+    use {
+      'windwp/nvim-autopairs',
+      config = function()
+        require('nvim-autopairs').setup{}
+      end
     }
 
     -- Git intergration
@@ -121,7 +122,7 @@ packer.startup {
         'nvim-lua/plenary.nvim'
       },
       config = function()
-        require('configs.vgit')
+        require('configs.vgit-nvim').config()
       end
     }
 
@@ -207,11 +208,44 @@ packer.startup {
 
     -- Start screen
     use {
-      "glepnir/dashboard-nvim",
+      'glepnir/dashboard-nvim',
       config = function()
         -- require("configs.dashboard").config()
       end,
     }
+
+    -- Symbols outline
+    use {
+      'simrat39/symbols-outline.nvim'
+    }
+
+    -- Blade
+    use {
+      'jwalton512/vim-blade'
+    }
+
+    use {
+      'numToStr/Comment.nvim',
+      config = function()
+        require('Comment').setup()
+      end
+    }
+
+    use {
+      "danymat/neogen",
+      config = function()
+        require('neogen').setup {}
+      end,
+      requires = "nvim-treesitter/nvim-treesitter",
+      -- Uncomment next line if you want to follow only stable versions
+      -- tag = "*" 
+    }
+
+  use {
+      'weilbith/nvim-code-action-menu',
+      cmd = 'CodeActionMenu',
+    }
+
   end
 }
 

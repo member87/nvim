@@ -99,24 +99,15 @@ function M.config()
   end
 
   -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-  local servers = {'pyright', 'sumneko_lua', 'tsserver', 'vimls', 'bashls'}
+  local lsp_installer = require("nvim-lsp-installer")
 
-  for _, v in pairs(servers) do
-    require('lspconfig')[v].setup {
+  lsp_installer.on_server_ready(function(server)
+    local options = {
       capabilities = capabilities,
-      on_attach = on_attach
+      on_attach = on_attach,
     }
-  end
-
-  require('lspconfig').sumneko_lua.setup{
-    settings = {
-      Lua = {
-        diagnostics = {
-          globals = { 'vim' }
-        }
-      }
-    }
-  }
+    server:setup(options)
+  end)
 end
 
 return M
