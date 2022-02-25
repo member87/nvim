@@ -16,5 +16,13 @@ set.relativenumber = true
 set.number = true
 set.cursorline = true
 
+--[[
+vim.api.nvim_command([[
+autocmd filetype php set filetype=php.html.css
+autocmd filetype blade set filetype=blade.php.html.css
+]]
+
+
+
 return M
 

@@ -20,8 +20,10 @@ packer.startup {
 
     -- builtin lsp
     use {
-      'neovim/nvim-lspconfig'
+      'neovim/nvim-lspconfig',
+      'williamboman/nvim-lsp-installer',
     }
+
 
     use {
       'hrsh7th/nvim-cmp',
@@ -149,16 +151,6 @@ packer.startup {
       'kevinhwang91/nvim-bqf'
     }
 
-
-    -- Document Generator
-    use {
-      'kkoomen/vim-doge',
-      run = ':call doge#install()',
-      config = function()
-        require('configs.doge-nvim')
-      end
-    }
-
     -- File finder
     use {
       'nvim-telescope/telescope.nvim',
@@ -226,6 +218,34 @@ packer.startup {
     use {
       'simrat39/symbols-outline.nvim'
     }
+
+    -- Blade
+    use {
+      'jwalton512/vim-blade'
+    }
+
+    use {
+      'numToStr/Comment.nvim',
+      config = function()
+        require('Comment').setup()
+      end
+    }
+
+    use {
+      "danymat/neogen",
+      config = function()
+        require('neogen').setup {}
+      end,
+      requires = "nvim-treesitter/nvim-treesitter",
+      -- Uncomment next line if you want to follow only stable versions
+      -- tag = "*" 
+    }
+
+  use {
+      'weilbith/nvim-code-action-menu',
+      cmd = 'CodeActionMenu',
+    }
+
   end
 }
 
