@@ -115,7 +115,8 @@ packer.startup {
       end
     }
 
-    -- Git intergration
+    -- Git intergration (CURRENTLY BROKEN)
+    --[[
     use {
       'tanvirtin/vgit.nvim',
       requires = {
@@ -125,6 +126,7 @@ packer.startup {
         require('configs.vgit-nvim').config()
       end
     }
+    ]]
 
 
     -- Notifications
@@ -219,11 +221,6 @@ packer.startup {
       'simrat39/symbols-outline.nvim'
     }
 
-    -- Blade
-    use {
-      'jwalton512/vim-blade'
-    }
-
     use {
       'numToStr/Comment.nvim',
       config = function()
@@ -237,8 +234,6 @@ packer.startup {
         require('neogen').setup {}
       end,
       requires = "nvim-treesitter/nvim-treesitter",
-      -- Uncomment next line if you want to follow only stable versions
-      -- tag = "*" 
     }
 
   use {
