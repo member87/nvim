@@ -111,22 +111,10 @@ packer.startup {
     use {
       'windwp/nvim-autopairs',
       config = function()
-        require('nvim-autopairs').setup{}
-      end
+        require('configs.nvim-autopairs').config()
+      end,
+      after = 'nvim-cmp'
     }
-
-    -- Git intergration (CURRENTLY BROKEN)
-    --[[
-    use {
-      'tanvirtin/vgit.nvim',
-      requires = {
-        'nvim-lua/plenary.nvim'
-      },
-      config = function()
-        require('configs.vgit-nvim').config()
-      end
-    }
-    ]]
 
 
     -- Notifications
@@ -186,13 +174,17 @@ packer.startup {
     }
 
     -- Colour Scheme
-    use {
-      'RRethy/nvim-base16',
+    use({
+      "catppuccin/nvim",
       config = function()
-        vim.cmd 'colorscheme base16-material-darker'
-        vim.cmd 'highlight LineNr guifg=#4a4a4a'
+        local catppuccin = require("catppuccin")
+        catppuccin.setup({
+        })
+
+        vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+        vim.cmd[[colorscheme catppuccin]]
       end
-    }
+    })
 
     -- Icons
     use {
@@ -208,24 +200,9 @@ packer.startup {
       end
     }
 
-    -- Start screen
-    use {
-      'glepnir/dashboard-nvim',
-      config = function()
-        -- require("configs.dashboard").config()
-      end,
-    }
-
     -- Symbols outline
     use {
       'simrat39/symbols-outline.nvim'
-    }
-
-    use {
-      'numToStr/Comment.nvim',
-      config = function()
-        require('Comment').setup()
-      end
     }
 
     use {
@@ -236,9 +213,14 @@ packer.startup {
       requires = "nvim-treesitter/nvim-treesitter",
     }
 
-  use {
+    use {
       'weilbith/nvim-code-action-menu',
       cmd = 'CodeActionMenu',
+    }
+
+
+    use {
+      "jwalton512/vim-blade"
     }
 
   end
