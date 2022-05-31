@@ -169,7 +169,7 @@ packer.startup {
     use {
       'kyazdani42/nvim-tree.lua',
       config = function()
-        require('configs.nvim-tree').config()
+        require('configs.tree').config()
       end,
     }
 
@@ -203,6 +203,18 @@ packer.startup {
     -- Symbols outline
     use {
       'simrat39/symbols-outline.nvim'
+    }
+
+    -- Indent Blankline
+    use {
+      'lukas-reineke/indent-blankline.nvim',
+      config = function()
+        require("indent_blankline").setup {
+          space_char_blankline = " ",
+          show_current_context = true,
+          show_current_context_start = true,
+        }
+      end
     }
 
     use {
