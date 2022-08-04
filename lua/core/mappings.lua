@@ -1,12 +1,11 @@
-local M = {}
-
 local opts = { noremap = true, silent = true }
 
 local map = vim.api.nvim_set_keymap
 
+vim.g.mapleader = " "
+
 -- Telescope
 map("n", "<A-p>", "<cmd>Telescope find_files<CR>", opts)
-
 
 -- Bufferline
 map("n", "<A-,>", "<cmd>BufferPrevious<CR>", opts)
@@ -31,7 +30,4 @@ map("n", "<A-t>", "<cmd>ToggleTerm<CR>", opts)
 -- open symbols outline
 map("n", "<A-s>", "<cmd>SymbolsOutline<CR>", opts)
 
-
-return M
-
-
+map("n", "<leader>trf", "<cmd>NvimTreeRefresh<CR>", opts)
