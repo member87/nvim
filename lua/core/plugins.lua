@@ -207,7 +207,7 @@ packer.startup({
 		use({
 			"folke/which-key.nvim",
 			config = function()
-				require("lua.configs.whichkey")
+				require("configs.whichkey")
 			end,
 		})
 	end,

@@ -11,8 +11,6 @@ require("null-ls").setup({
 		formatting.prettierd,
 		completion.spell,
 		completion.vsnip,
-		code_actions.gitsigns,
-		code_actions.refactoring,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then

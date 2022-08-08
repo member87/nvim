@@ -1,8 +1,38 @@
 local cmp = require("cmp")
 
+local kind_icons = {
+	Text = "",
+	Method = "",
+	Function = "",
+	Constructor = "",
+	Field = "",
+	Variable = "",
+	Class = "ﴯ",
+	Interface = "",
+	Module = "",
+	Property = "ﰠ",
+	Unit = "",
+	Value = "",
+	Enum = "",
+	Keyword = "",
+	Snippet = "",
+	Color = "",
+	File = "",
+	Reference = "",
+	Folder = "",
+	EnumMember = "",
+	Constant = "",
+	Struct = "",
+	Event = "",
+	Operator = "",
+	TypeParameter = ""
+}
+
 cmp.setup({
 	formatting = {
 		format = function(entry, vim_item)
+			-- Kind icons
+			vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
 			-- Source
 			vim_item.menu = ({
 				buffer = "[Buffer]",
@@ -12,7 +42,10 @@ cmp.setup({
 				latex_symbols = "[LaTeX]",
 			})[entry.source.name]
 			return vim_item
-		end,
+		end
+	},
+	experimental = {
+		ghost_text = true
 	},
 	snippet = {
 		-- REQUIRED - you must specify a snippet engine
@@ -58,9 +91,10 @@ cmp.setup.cmdline("/", {
 cmp.setup.cmdline(":", {
 	sources = cmp.config.sources({
 		{ name = "path" },
-	}, {
-		{ name = "cmdline" },
-	}),
+	},
+		{
+			{ name = "cmdline" },
+		}),
 })
 
 -- Setup lspconfig.
@@ -99,6 +133,9 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+
+
+
 end
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
