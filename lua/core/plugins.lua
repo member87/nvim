@@ -203,6 +203,13 @@ packer.startup({
 
 		-- Laravel
 		use("jwalton512/vim-blade")
+
+		use({
+			"folke/which-key.nvim",
+			config = function()
+				require("lua.configs.whichkey")
+			end,
+		})
 	end,
 })
 
