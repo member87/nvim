@@ -8,14 +8,14 @@ end
 packer.startup({
 	function(use)
 		-- Plugin manger
-		use("wbthomason/packer.nvim")
+		use "wbthomason/packer.nvim"
 
 		-- Lua functions
-		use("nvim-lua/plenary.nvim")
+		use "nvim-lua/plenary.nvim"
 
 		-- builtin lsp
-		use("neovim/nvim-lspconfig")
-		use("williamboman/nvim-lsp-installer")
+		use "neovim/nvim-lspconfig"
+		use "williamboman/nvim-lsp-installer"
 
 		use({
 			"hrsh7th/nvim-cmp",
@@ -26,7 +26,7 @@ packer.startup({
 		})
 
 		-- LSP completion source
-		use("hrsh7th/cmp-nvim-lsp")
+		use "hrsh7th/cmp-nvim-lsp"
 
 		-- Buffer completion source
 		use({
@@ -56,7 +56,6 @@ packer.startup({
 		use({
 			"hrsh7th/vim-vsnip",
 			requires = {
-				-- Snippet collections
 				"rafamadriz/friendly-snippets",
 			},
 		})
@@ -121,9 +120,7 @@ packer.startup({
 		})
 
 		-- Better quick fix
-		use({
-			"kevinhwang91/nvim-bqf",
-		})
+		use "kevinhwang91/nvim-bqf"
 
 		-- File finder
 		use({
@@ -170,7 +167,7 @@ packer.startup({
 		})
 
 		-- Icons
-		use("kyazdani42/nvim-web-devicons")
+		use "kyazdani42/nvim-web-devicons"
 
 		-- Terminal
 		use({
@@ -200,40 +197,12 @@ packer.startup({
 		use({
 			"jose-elias-alvarez/null-ls.nvim",
 			config = function()
-				local nls = require("null-ls")
-
-				local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
-				require("null-ls").setup({
-					sources = {
-						nls.builtins.formatting.stylua,
-						nls.builtins.formatting.blade_formatter,
-						nls.builtins.formatting.prettierd,
-						-- nls.builtins.diagnostics.eslint,
-						nls.builtins.completion.spell,
-						-- nls.builtins.completion.luasnip,
-						nls.builtins.code_actions.gitsigns,
-						nls.builtins.code_actions.refactoring,
-					},
-					on_attach = function(client, bufnr)
-						if client.supports_method("textDocument/formatting") then
-							vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-							vim.api.nvim_create_autocmd("BufWritePre", {
-								group = augroup,
-								buffer = bufnr,
-								callback = function()
-									-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-									vim.lsp.buf.formatting_sync()
-								end,
-							})
-						end
-					end,
-				})
-			end,
+				require('configs.nullls')
+			end
 		})
 
 		-- Laravel
-		use("jwalton512/vim-blade")
+		use "jwalton512/vim-blade"
 	end,
 })
 
