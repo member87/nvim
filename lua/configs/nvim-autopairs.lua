@@ -1,8 +1,1 @@
-local M = {}
-
-function M.config()
-  require('nvim-autopairs').setup{}
-end
-
-return M
-
+require('nvim-autopairs').setup{}

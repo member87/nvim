@@ -8,25 +8,25 @@ end
 packer.startup({
 	function(use)
 		-- Plugin manger
-		use "wbthomason/packer.nvim"
+		use("wbthomason/packer.nvim")
 
 		-- Lua functions
-		use "nvim-lua/plenary.nvim"
+		use("nvim-lua/plenary.nvim")
 
 		-- builtin lsp
-		use "neovim/nvim-lspconfig"
-		use "williamboman/nvim-lsp-installer"
+		use("neovim/nvim-lspconfig")
+		use("williamboman/nvim-lsp-installer")
 
 		use({
 			"hrsh7th/nvim-cmp",
 			event = "BufRead",
 			config = function()
-				require("configs.cmp-nvim").config()
+				require("configs.cmp-nvim")
 			end,
 		})
 
 		-- LSP completion source
-		use "hrsh7th/cmp-nvim-lsp"
+		use("hrsh7th/cmp-nvim-lsp")
 
 		-- Buffer completion source
 		use({
@@ -82,7 +82,7 @@ packer.startup({
 				"TSEnableAll",
 			},
 			config = function()
-				require("configs.treesitter").config()
+				require("configs.treesitter")
 			end,
 			requires = {
 				{
@@ -97,7 +97,7 @@ packer.startup({
 		use({
 			"windwp/nvim-autopairs",
 			config = function()
-				require("configs.nvim-autopairs").config()
+				require("configs.nvim-autopairs")
 			end,
 			after = "nvim-cmp",
 		})
@@ -120,14 +120,14 @@ packer.startup({
 		})
 
 		-- Better quick fix
-		use "kevinhwang91/nvim-bqf"
+		use("kevinhwang91/nvim-bqf")
 
 		-- File finder
 		use({
 			"nvim-telescope/telescope.nvim",
 			cmd = "Telescope",
 			config = function()
-				require("configs.telescope").config()
+				require("configs.telescope")
 			end,
 		})
 
@@ -142,7 +142,7 @@ packer.startup({
 			"nvim-lualine/lualine.nvim",
 			after = "barbar.nvim",
 			config = function()
-				require("configs.lualine").config()
+				require("configs.lualine")
 			end,
 		})
 
@@ -150,7 +150,7 @@ packer.startup({
 		use({
 			"kyazdani42/nvim-tree.lua",
 			config = function()
-				require("configs.tree").config()
+				require("configs.tree")
 			end,
 		})
 
@@ -167,14 +167,14 @@ packer.startup({
 		})
 
 		-- Icons
-		use "kyazdani42/nvim-web-devicons"
+		use("kyazdani42/nvim-web-devicons")
 
 		-- Terminal
 		use({
 			"akinsho/nvim-toggleterm.lua",
 			cmd = "ToggleTerm",
 			config = function()
-				require("configs.toggleterm").config()
+				require("configs.toggleterm")
 			end,
 		})
 
@@ -197,12 +197,12 @@ packer.startup({
 		use({
 			"jose-elias-alvarez/null-ls.nvim",
 			config = function()
-				require('configs.nullls')
-			end
+				require("configs.nullls")
+			end,
 		})
 
 		-- Laravel
-		use "jwalton512/vim-blade"
+		use("jwalton512/vim-blade")
 	end,
 })
 
