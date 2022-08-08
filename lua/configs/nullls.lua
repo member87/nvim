@@ -9,7 +9,6 @@ require("null-ls").setup({
 	sources = {
 		formatting.blade_formatter,
 		formatting.prettierd,
-		completion.spell,
 		completion.vsnip,
 	},
 	on_attach = function(client, bufnr)

@@ -5,7 +5,7 @@ require('bqf').setup({
     win_height = 12,
     win_vheight = 12,
     delay_syntax = 80,
-    border_chars = {'┃', '┃', '━', '━', '┏', '┓', '┗', '┛', '█'},
+    border_chars = { '┃', '┃', '━', '━', '┏', '┓', '┗', '┛', '█' },
     should_preview_cb = function(bufnr)
       local ret = true
       local bufname = vim.api.nvim_buf_get_name(bufnr)
@@ -31,8 +31,8 @@ require('bqf').setup({
   },
   filter = {
     fzf = {
-      action_for = {['ctrl-s'] = 'split', ['ctrl-t'] = 'tab drop'},
-      extra_opts = {'--bind', 'ctrl-o:toggle-all', '--prompt', '> '}
+      action_for = { ['ctrl-s'] = 'split', ['ctrl-t'] = 'tab drop' },
+      extra_opts = { '--bind', 'ctrl-o:toggle-all', '--prompt', '> ' }
     }
   }
 })
