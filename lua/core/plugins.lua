@@ -161,7 +161,7 @@ packer.startup({
         catppuccin.setup({})
 
         vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
-        vim.cmd([[colorscheme catppuccin]])
+        vim.cmd("colorscheme catppuccin")
       end,
     })
 
@@ -212,6 +212,21 @@ packer.startup({
       config = function()
         require("configs.whichkey")
       end,
+    })
+
+    use({
+      "lewis6991/gitsigns.nvim",
+      config = function()
+        require('gitsigns').setup({
+          current_line_blame = true,
+          current_line_blame_opts = {
+            virt_text = true,
+            virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+            delay = 500,
+            ignore_whitespace = false,
+          },
+        })
+      end
     })
   end,
 })
