@@ -1,252 +1,234 @@
 local M = {}
 
-local packer_status_ok, packer = pcall(require, 'packer')
+local packer_status_ok, packer = pcall(require, "packer")
 if not packer_status_ok then
   return
 end
 
-packer.startup {
+packer.startup({
   function(use)
-
     -- Plugin manger
-    use {
-      'wbthomason/packer.nvim'
-    }
+    use("wbthomason/packer.nvim")
 
     -- Lua functions
-    use {
-      'nvim-lua/plenary.nvim',
-    }
+    use("nvim-lua/plenary.nvim")
 
     -- builtin lsp
-    use {
-      'neovim/nvim-lspconfig',
-      'williamboman/nvim-lsp-installer',
-    }
+    use("neovim/nvim-lspconfig")
+    use("williamboman/nvim-lsp-installer")
 
-
-    use {
-      'hrsh7th/nvim-cmp',
-      event = 'BufRead',
+    use({
+      "hrsh7th/nvim-cmp",
+      event = "BufRead",
       config = function()
-        require('configs.cmp-nvim').config()
+        require("configs.cmp-nvim")
       end,
-    }
-
+    })
 
     -- LSP completion source
-    use {
-      'hrsh7th/cmp-nvim-lsp',
-    }
+    use("hrsh7th/cmp-nvim-lsp")
 
     -- Buffer completion source
-    use {
-      'hrsh7th/cmp-buffer',
-      after = 'nvim-cmp',
-    }
+    use({
+      "hrsh7th/cmp-buffer",
+      after = "nvim-cmp",
+    })
 
     -- Path completion source
-    use {
-      'hrsh7th/cmp-path',
-      after = 'nvim-cmp',
-    }
+    use({
+      "hrsh7th/cmp-path",
+      after = "nvim-cmp",
+    })
 
     -- Command line completion source
-    use {
-      'hrsh7th/cmp-cmdline',
-      after = 'nvim-cmp',
-    }
+    use({
+      "hrsh7th/cmp-cmdline",
+      after = "nvim-cmp",
+    })
 
     -- LSP signature
-    use {
-      'ray-x/lsp_signature.nvim',
-      after = 'nvim-cmp',
-    }
+    use({
+      "ray-x/lsp_signature.nvim",
+      after = "nvim-cmp",
+    })
 
     -- Snippet engine
-    use {
-      'hrsh7th/vim-vsnip',
+    use({
+      "hrsh7th/vim-vsnip",
       requires = {
-        -- Snippet collections
-        'rafamadriz/friendly-snippets',
+        "rafamadriz/friendly-snippets",
       },
-    }
+    })
 
     -- Snippet completion source
-    use {
-      'hrsh7th/cmp-vsnip',
-      after = 'nvim-cmp',
-    }
-
+    use({
+      "hrsh7th/cmp-vsnip",
+      after = "nvim-cmp",
+    })
 
     -- Syntax highlighting
-    use {
-      'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate',
-      event = 'BufRead',
+    use({
+      "nvim-treesitter/nvim-treesitter",
+      run = ":TSUpdate",
+      event = "BufRead",
       cmd = {
-        'TSInstall',
-        'TSInstallInfo',
-        'TSInstallSync',
-        'TSUninstall',
-        'TSUpdate',
-        'TSUpdateSync',
-        'TSDisableAll',
-        'TSEnableAll',
+        "TSInstall",
+        "TSInstallInfo",
+        "TSInstallSync",
+        "TSUninstall",
+        "TSUpdate",
+        "TSUpdateSync",
+        "TSDisableAll",
+        "TSEnableAll",
       },
       config = function()
-        require('configs.treesitter').config()
+        require("configs.treesitter")
       end,
       requires = {
         {
-          -- Parenthesis highlighting
-          'p00f/nvim-ts-rainbow',
-          after = 'nvim-treesitter',
+          "p00f/nvim-ts-rainbow",
+          after = "nvim-treesitter",
         },
       },
-    }
-
+    })
 
     -- Auto pairs
-    use {
-      'windwp/nvim-autopairs',
+    use({
+      "windwp/nvim-autopairs",
       config = function()
-        require('nvim-autopairs').setup{}
-      end
-    }
-
-    -- Git intergration
-    use {
-      'tanvirtin/vgit.nvim',
-      requires = {
-        'nvim-lua/plenary.nvim'
-      },
-      config = function()
-        require('configs.vgit-nvim').config()
-      end
-    }
-
+        require("configs.nvim-autopairs")
+      end,
+      after = "nvim-cmp",
+    })
 
     -- Notifications
-    use {
-      'rcarriga/nvim-notify',
+    use({
+      "rcarriga/nvim-notify",
       config = function()
         vim.notify = require("notify")
-      end
-    }
-
+      end,
+    })
 
     -- Highlight colours
-    use {
-      'norcalli/nvim-colorizer.lua',
+    use({
+      "norcalli/nvim-colorizer.lua",
       config = function()
-        require('configs.colorizer')
+        require("configs.colorizer")
       end,
-      after = 'nvim-treesitter'
-    }
-
+      after = "nvim-treesitter",
+    })
 
     -- Better quick fix
-    use {
-      'kevinhwang91/nvim-bqf'
-    }
+    use("kevinhwang91/nvim-bqf")
 
     -- File finder
-    use {
-      'nvim-telescope/telescope.nvim',
-      cmd = 'Telescope',
+    use({
+      "nvim-telescope/telescope.nvim",
+      cmd = "Telescope",
       config = function()
-        require('configs.telescope').config()
+        require("configs.telescope")
       end,
-    }
+    })
 
     -- Bufferline
-    use {
-      'romgrk/barbar.nvim',
-      after = 'nvim-web-devicons',
-    }
+    use({
+      "romgrk/barbar.nvim",
+      after = "nvim-web-devicons",
+    })
 
     -- Statusline
-    use {
-      'nvim-lualine/lualine.nvim',
-      after = 'barbar.nvim',
+    use({
+      "nvim-lualine/lualine.nvim",
+      after = "barbar.nvim",
       config = function()
-        require('configs.lualine').config()
+        require("configs.lualine")
       end,
-    }
+    })
 
     -- File explorer
-    use {
-      'kyazdani42/nvim-tree.lua',
+    use({
+      "kyazdani42/nvim-tree.lua",
       config = function()
-        require('configs.nvim-tree').config()
+        require("configs.tree")
       end,
-    }
+    })
 
     -- Colour Scheme
-    use {
-      'RRethy/nvim-base16',
+    use({
+      "catppuccin/nvim",
       config = function()
-        vim.cmd 'colorscheme base16-material-darker'
-        vim.cmd 'highlight LineNr guifg=#4a4a4a'
-      end
-    }
+        local catppuccin = require("catppuccin")
+        catppuccin.setup({})
+
+        vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+        vim.cmd("colorscheme catppuccin")
+      end,
+    })
 
     -- Icons
-    use {
-      'kyazdani42/nvim-web-devicons',
-    }
+    use("kyazdani42/nvim-web-devicons")
 
     -- Terminal
-    use {
-      'akinsho/nvim-toggleterm.lua',
-      cmd = 'ToggleTerm',
+    use({
+      "akinsho/nvim-toggleterm.lua",
+      cmd = "ToggleTerm",
       config = function()
-        require("configs.toggleterm").config()
-      end
-    }
-
-    -- Start screen
-    use {
-      'glepnir/dashboard-nvim',
-      config = function()
-        -- require("configs.dashboard").config()
+        require("configs.toggleterm")
       end,
-    }
+    })
 
     -- Symbols outline
-    use {
-      'simrat39/symbols-outline.nvim'
-    }
+    use("simrat39/symbols-outline.nvim")
 
-    -- Blade
-    use {
-      'jwalton512/vim-blade'
-    }
-
-    use {
-      'numToStr/Comment.nvim',
+    -- Indent Blankline
+    use({
+      "lukas-reineke/indent-blankline.nvim",
       config = function()
-        require('Comment').setup()
-      end
-    }
+        vim.opt.list = true
+        vim.opt.listchars:append "space:⋅"
 
-    use {
-      "danymat/neogen",
-      config = function()
-        require('neogen').setup {}
+        require("indent_blankline").setup({
+          space_char_blankline = " ",
+          show_current_context = true,
+          show_current_context_start = true,
+        })
       end,
-      requires = "nvim-treesitter/nvim-treesitter",
-      -- Uncomment next line if you want to follow only stable versions
-      -- tag = "*" 
-    }
+      after = "nvim-treesitter"
+    })
 
-  use {
-      'weilbith/nvim-code-action-menu',
-      cmd = 'CodeActionMenu',
-    }
+    -- Null-ls
+    use({
+      "jose-elias-alvarez/null-ls.nvim",
+      config = function()
+        require("configs.nullls")
+      end,
+    })
 
-  end
-}
+    -- Laravel
+    use("jwalton512/vim-blade")
+
+    use({
+      "folke/which-key.nvim",
+      config = function()
+        require("configs.whichkey")
+      end,
+    })
+
+    use({
+      "lewis6991/gitsigns.nvim",
+      config = function()
+        require('gitsigns').setup({
+          current_line_blame = true,
+          current_line_blame_opts = {
+            virt_text = true,
+            virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+            delay = 500,
+            ignore_whitespace = false,
+          },
+        })
+      end
+    })
+  end,
+})
 
 return M

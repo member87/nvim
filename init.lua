@@ -1,7 +1,6 @@
 local sources = {
 	"core.options",
 	"core.plugins",
-	"core.mappings",
 }
 
 for _, source in ipairs(sources) do
@@ -10,5 +9,3 @@ for _, source in ipairs(sources) do
 		error("Failed to load " .. source .. "\n\n" .. fault)
 	end
 end
-
-

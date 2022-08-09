@@ -1,14 +1,20 @@
-local M = {}
-
-local opts = { noremap = true, silent = true }
-
+local wk = require("which-key")
 local map = vim.api.nvim_set_keymap
 
--- Telescope
-map("n", "<A-p>", "<cmd>Telescope find_files<CR>", opts)
+local opts = { noremap = true, silent = true }
+vim.g.mapleader = " "
 
+wk.setup()
 
--- Bufferline
+wk.register({
+  ["<leader>f"] = {
+    name = "Find",
+    f = { "<cmd>Telescope find_files<CR>", "Find files" },
+    g = { "<cmd>Telescope live_grep<CR>", "Live grep" },
+    r = { "<cmd>Telescope oldfiles<CR>", "Open recent files" },
+  },
+})
+
 map("n", "<A-,>", "<cmd>BufferPrevious<CR>", opts)
 map("n", "<A-.>", "<cmd>BufferNext<CR>", opts)
 map("n", "<A-c>", "<cmd>BufferClose<CR>", opts)
@@ -31,7 +37,5 @@ map("n", "<A-t>", "<cmd>ToggleTerm<CR>", opts)
 -- open symbols outline
 map("n", "<A-s>", "<cmd>SymbolsOutline<CR>", opts)
 
-
-return M
-
-
+-- nvim tree NvimTreeRefresh
+map("n", "<leader>trf", "<cmd>NvimTreeRefresh<CR>", opts)
