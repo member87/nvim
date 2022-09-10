@@ -131,13 +131,3 @@ local on_attach = function(client, bufnr)
 
 end
 
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local lsp_installer = require("nvim-lsp-installer")
-
-lsp_installer.on_server_ready(function(server)
-  local options = {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
-  server:setup(options)
-end)
