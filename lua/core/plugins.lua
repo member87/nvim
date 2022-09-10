@@ -15,7 +15,12 @@ packer.startup({
 
     -- builtin lsp
     use("neovim/nvim-lspconfig")
-    use("williamboman/nvim-lsp-installer")
+    use({
+      "williamboman/mason.nvim",
+      config = function()
+        require("mason").setup()
+      end
+    })
 
     use({
       "hrsh7th/nvim-cmp",
