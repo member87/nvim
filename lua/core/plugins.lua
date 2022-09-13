@@ -127,6 +127,10 @@ packer.startup({
       },
     })
 
+    use({
+      'wellle/context.vim',
+    })
+
     -- Auto pairs
     use({
       "windwp/nvim-autopairs",
@@ -235,7 +239,7 @@ packer.startup({
     use({
       "jose-elias-alvarez/null-ls.nvim",
       after = {
-        "masin.nvim"
+        "mason.nvim"
       },
       config = function()
         require("configs.nullls")
