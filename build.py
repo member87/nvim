@@ -4,7 +4,7 @@ plugins = []
 
 def get_description(plugin):
     r = requests.get(f"https://api.github.com/repos/{plugin}")
-    print(r.json()["description"])
+    return r.json()["description"]
 
 with open("lua/core/plugins.lua") as f:
     content = f.read()
