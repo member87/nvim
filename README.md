@@ -9,33 +9,33 @@
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) - fuzzy file finder
 
 ## Plugins
-- [wbthomason/packer.nvim](http://github.com/wbthomason/packer.nvim)
-- [nvim-lua/plenary.nvim](http://github.com/nvim-lua/plenary.nvim)
-- [neovim/nvim-lspconfig](http://github.com/neovim/nvim-lspconfig)
-- [hrsh7th/cmp-nvim-lsp](http://github.com/hrsh7th/cmp-nvim-lsp)
-- [kevinhwang91/nvim-bqf](http://github.com/kevinhwang91/nvim-bqf)
-- [kyazdani42/nvim-web-devicons](http://github.com/kyazdani42/nvim-web-devicons)
-- [simrat39/symbols-outline.nvim](http://github.com/simrat39/symbols-outline.nvim)
-- [jwalton512/vim-blade](http://github.com/jwalton512/vim-blade)
-- [williamboman/mason.nvim](http://github.com/williamboman/mason.nvim)
-- [hrsh7th/nvim-cmp](http://github.com/hrsh7th/nvim-cmp)
-- [hrsh7th/cmp-buffer](http://github.com/hrsh7th/cmp-buffer)
-- [hrsh7th/cmp-path](http://github.com/hrsh7th/cmp-path)
-- [hrsh7th/cmp-cmdline](http://github.com/hrsh7th/cmp-cmdline)
-- [ray-x/lsp_signature.nvim](http://github.com/ray-x/lsp_signature.nvim)
-- [hrsh7th/vim-vsnip](http://github.com/hrsh7th/vim-vsnip)
-- [hrsh7th/cmp-vsnip](http://github.com/hrsh7th/cmp-vsnip)
-- [nvim-treesitter/nvim-treesitter](http://github.com/nvim-treesitter/nvim-treesitter)
-- [windwp/nvim-autopairs](http://github.com/windwp/nvim-autopairs)
-- [rcarriga/nvim-notify](http://github.com/rcarriga/nvim-notify)
-- [norcalli/nvim-colorizer.lua](http://github.com/norcalli/nvim-colorizer.lua)
-- [nvim-telescope/telescope.nvim](http://github.com/nvim-telescope/telescope.nvim)
-- [romgrk/barbar.nvim](http://github.com/romgrk/barbar.nvim)
-- [nvim-lualine/lualine.nvim](http://github.com/nvim-lualine/lualine.nvim)
-- [kyazdani42/nvim-tree.lua](http://github.com/kyazdani42/nvim-tree.lua)
-- [catppuccin/nvim](http://github.com/catppuccin/nvim)
-- [akinsho/nvim-toggleterm.lua](http://github.com/akinsho/nvim-toggleterm.lua)
-- [lukas-reineke/indent-blankline.nvim](http://github.com/lukas-reineke/indent-blankline.nvim)
-- [jose-elias-alvarez/null-ls.nvim](http://github.com/jose-elias-alvarez/null-ls.nvim)
-- [folke/which-key.nvim](http://github.com/folke/which-key.nvim)
-- [lewis6991/gitsigns.nvim](http://github.com/lewis6991/gitsigns.nvim)
+- [wbthomason/packer.nvim](http://github.com/wbthomason/packer.nvim) - None
+- [nvim-lua/plenary.nvim](http://github.com/nvim-lua/plenary.nvim) - None
+- [neovim/nvim-lspconfig](http://github.com/neovim/nvim-lspconfig) - None
+- [hrsh7th/cmp-nvim-lsp](http://github.com/hrsh7th/cmp-nvim-lsp) - None
+- [kevinhwang91/nvim-bqf](http://github.com/kevinhwang91/nvim-bqf) - None
+- [kyazdani42/nvim-web-devicons](http://github.com/kyazdani42/nvim-web-devicons) - None
+- [simrat39/symbols-outline.nvim](http://github.com/simrat39/symbols-outline.nvim) - None
+- [jwalton512/vim-blade](http://github.com/jwalton512/vim-blade) - None
+- [williamboman/mason.nvim](http://github.com/williamboman/mason.nvim) - None
+- [hrsh7th/nvim-cmp](http://github.com/hrsh7th/nvim-cmp) - None
+- [hrsh7th/cmp-buffer](http://github.com/hrsh7th/cmp-buffer) - None
+- [hrsh7th/cmp-path](http://github.com/hrsh7th/cmp-path) - None
+- [hrsh7th/cmp-cmdline](http://github.com/hrsh7th/cmp-cmdline) - None
+- [ray-x/lsp_signature.nvim](http://github.com/ray-x/lsp_signature.nvim) - None
+- [hrsh7th/vim-vsnip](http://github.com/hrsh7th/vim-vsnip) - None
+- [hrsh7th/cmp-vsnip](http://github.com/hrsh7th/cmp-vsnip) - None
+- [nvim-treesitter/nvim-treesitter](http://github.com/nvim-treesitter/nvim-treesitter) - None
+- [windwp/nvim-autopairs](http://github.com/windwp/nvim-autopairs) - None
+- [rcarriga/nvim-notify](http://github.com/rcarriga/nvim-notify) - None
+- [norcalli/nvim-colorizer.lua](http://github.com/norcalli/nvim-colorizer.lua) - None
+- [nvim-telescope/telescope.nvim](http://github.com/nvim-telescope/telescope.nvim) - None
+- [romgrk/barbar.nvim](http://github.com/romgrk/barbar.nvim) - None
+- [nvim-lualine/lualine.nvim](http://github.com/nvim-lualine/lualine.nvim) - None
+- [kyazdani42/nvim-tree.lua](http://github.com/kyazdani42/nvim-tree.lua) - None
+- [catppuccin/nvim](http://github.com/catppuccin/nvim) - None
+- [akinsho/nvim-toggleterm.lua](http://github.com/akinsho/nvim-toggleterm.lua) - None
+- [lukas-reineke/indent-blankline.nvim](http://github.com/lukas-reineke/indent-blankline.nvim) - None
+- [jose-elias-alvarez/null-ls.nvim](http://github.com/jose-elias-alvarez/null-ls.nvim) - None
+- [folke/which-key.nvim](http://github.com/folke/which-key.nvim) - None
+- [lewis6991/gitsigns.nvim](http://github.com/lewis6991/gitsigns.nvim) - None
