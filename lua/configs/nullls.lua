@@ -5,10 +5,11 @@ local formatting = nls.builtins.formatting
 local completion = nls.builtins.completion
 local code_actions = nls.builtins.code_actions
 
+
+
 require("null-ls").setup({
 	sources = {
 		formatting.blade_formatter,
-		formatting.prettierd,
 		completion.vsnip,
 	},
 	on_attach = function(client, bufnr)

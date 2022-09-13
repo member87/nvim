@@ -131,13 +131,15 @@ local on_attach = function(client, bufnr)
 
 end
 
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local lsp_installer = require("nvim-lsp-installer")
+local lspconfig = require("lspconfig")
 
-lsp_installer.on_server_ready(function(server)
-  local options = {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
-  server:setup(options)
-end)
+require("mason-lspconfig").setup_handlers {
+  -- This is a default handler that will be called for each installed server (also for new servers that are installed during a session)
+  function (server_name)
+    lspconfig[server_name].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    }
+  end,
+}
+
