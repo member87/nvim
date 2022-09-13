@@ -13,14 +13,44 @@ packer.startup({
     -- Lua functions
     use("nvim-lua/plenary.nvim")
 
-    -- builtin lsp
-    use("neovim/nvim-lspconfig")
+    -- mason
     use({
       "williamboman/mason.nvim",
       config = function()
         require("mason").setup()
+        require("mason-lspconfig").setup()
       end
     })
+    use {
+      "williamboman/mason-lspconfig.nvim"
+    }
+
+    use {
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+      config = function()
+        require('mason-tool-installer').setup({
+          auto_update = true,
+          run_on_start = true
+        })
+      end
+    }
+
+    use {
+      "jayp0521/mason-null-ls.nvim",
+      after = {
+        "null-ls.nvim",
+        "mason.nvim",
+      },
+      config = function()
+        require("mason-null-ls").setup({
+          automatic_installation = true,
+        })
+        require("mason-null-ls").check_install(true)
+      end,
+    }
+
+    -- builtin lsp
+    use("neovim/nvim-lspconfig")
 
     use({
       "hrsh7th/nvim-cmp",
@@ -204,6 +234,9 @@ packer.startup({
     -- Null-ls
     use({
       "jose-elias-alvarez/null-ls.nvim",
+      after = {
+        "masin.nvim"
+      },
       config = function()
         require("configs.nullls")
       end,

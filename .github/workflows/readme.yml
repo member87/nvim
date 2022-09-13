@@ -1,0 +1,9 @@
+name: Update ReadME
+
+on: push
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - run: python3 build.py
