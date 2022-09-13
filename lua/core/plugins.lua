@@ -28,7 +28,7 @@ packer.startup({
     use {
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       config = function()
-        require('mason-tool-installer').setup({
+        require("mason-tool-installer").setup({
           auto_update = true,
           run_on_start = true
         })
@@ -128,7 +128,7 @@ packer.startup({
     })
 
     use({
-      'wellle/context.vim',
+      "wellle/context.vim",
     })
 
     -- Auto pairs
@@ -259,11 +259,11 @@ packer.startup({
     use({
       "lewis6991/gitsigns.nvim",
       config = function()
-        require('gitsigns').setup({
+        require("gitsigns").setup({
           current_line_blame = true,
           current_line_blame_opts = {
             virt_text = true,
-            virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+            virt_text_pos = "eol", -- "eol" | "overlay" | "right_align"
             delay = 500,
             ignore_whitespace = false,
           },

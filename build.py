@@ -21,7 +21,8 @@ with open("README.md") as f:
     new_readme += "## Plugins\n"
 
 for plugin in plugins:
-    new_readme += f"- [{plugin}](http://github.com/{plugin}) - {get_description(plugin)}\n"
+    print(plugin)
+    new_readme += f"- [{plugin}](http://github.com/{plugin})" #- {get_description(plugin)}\n"
 
 with open("README.md", "w") as f:
     f.write(new_readme)
