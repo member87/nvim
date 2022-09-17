@@ -1,5 +1,5 @@
 ## Neovim Setup
-These are my settings for neovim. Plugins can be found below.
+These are my settings for neovim. Plugins can be found below (they are auto generated using the [build.py](build.py) file + github actions).
 
 ## Plugins
 - [wbthomason/packer.nvim](http://github.com/wbthomason/packer.nvim) - A use-package inspired plugin manager for Neovim. Uses native packages, supports Luarocks dependencies, written in Lua, allows for expressive config
