@@ -143,9 +143,6 @@ packer.startup({
       after = "nvim-treesitter",
     })
 
-    -- Better quick fix
-    use("kevinhwang91/nvim-bqf")
-
     -- File finder
     use({
       "nvim-telescope/telescope.nvim",
