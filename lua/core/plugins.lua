@@ -35,20 +35,6 @@ packer.startup({
       end
     }
 
-    use {
-      "jayp0521/mason-null-ls.nvim",
-      after = {
-        "null-ls.nvim",
-        "mason.nvim",
-      },
-      config = function()
-        require("mason-null-ls").setup({
-          automatic_installation = true,
-        })
-        require("mason-null-ls").check_install(true)
-      end,
-    }
-
     -- builtin lsp
     use("neovim/nvim-lspconfig")
 
