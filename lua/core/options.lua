@@ -1,5 +1,3 @@
-local M = {}
-
 local set = vim.opt
 
 set.autoindent = true
@@ -18,5 +16,3 @@ set.cursorline = true
 set.wrap = false
 
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
-
-return M
