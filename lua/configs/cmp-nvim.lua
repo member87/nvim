@@ -91,7 +91,7 @@ cmp.setup.cmdline(":", {
 })
 
 -- Setup lspconfig.
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
@@ -101,8 +101,6 @@ vim.keymap.set("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opt
 vim.keymap.set("n", "<leader>g", function() vim.lsp.buf.format { async = true } end, opts)
 
 local on_attach = function(client, bufnr)
-  require("lsp_signature").on_attach()
-
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 

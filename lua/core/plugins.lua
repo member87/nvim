@@ -1,5 +1,3 @@
-local M = {}
-
 local packer_status_ok, packer = pcall(require, "packer")
 if not packer_status_ok then
   return
@@ -154,14 +152,16 @@ packer.startup({
 
     -- Bufferline
     use({
-      "romgrk/barbar.nvim",
-      after = "nvim-web-devicons",
+      "akinsho/bufferline.nvim",
+      requires = 'nvim-tree/nvim-web-devicons',
+      config = function()
+        require("bufferline").setup {}
+      end
     })
 
     -- Statusline
     use({
       "nvim-lualine/lualine.nvim",
-      after = "barbar.nvim",
       config = function()
         require("configs.lualine")
       end,
@@ -255,5 +255,3 @@ packer.startup({
     })
   end,
 })
-
-return M
