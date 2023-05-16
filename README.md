@@ -27,7 +27,7 @@ These are my settings for neovim. Plugins can be found below.
 - [romgrk/barbar.nvim](http://github.com/romgrk/barbar.nvim) - The neovim tabline plugin.
 - [nvim-lualine/lualine.nvim](http://github.com/nvim-lualine/lualine.nvim) - A blazing fast and easy to configure neovim statusline plugin written in pure lua.
 - [kyazdani42/nvim-tree.lua](http://github.com/kyazdani42/nvim-tree.lua) - A file explorer tree for neovim written in lua
-- [catppuccin/nvim](http://github.com/catppuccin/nvim) - 🍨 Soothing pastel theme for NeoVim
+- [catppuccin/nvim](http://github.com/catppuccin/nvim) - 🍨 Soothing pastel theme for Neovim
 - [akinsho/nvim-toggleterm.lua](http://github.com/akinsho/nvim-toggleterm.lua) - A neovim lua plugin to help easily manage multiple terminal windows
 - [lukas-reineke/indent-blankline.nvim](http://github.com/lukas-reineke/indent-blankline.nvim) - Indent guides  for Neovim
 - [jose-elias-alvarez/null-ls.nvim](http://github.com/jose-elias-alvarez/null-ls.nvim) - Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
