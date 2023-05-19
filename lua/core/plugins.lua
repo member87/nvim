@@ -253,5 +253,9 @@ packer.startup({
         })
       end
     })
+
+
+    --wakatime
+    use('wakatime/vim-wakatime')
   end,
 })
