@@ -1,5 +1,3 @@
-local M = {}
-
 local packer_status_ok, packer = pcall(require, "packer")
 if not packer_status_ok then
   return
@@ -28,25 +26,11 @@ packer.startup({
     use {
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       config = function()
-        require('mason-tool-installer').setup({
+        require("mason-tool-installer").setup({
           auto_update = true,
           run_on_start = true
         })
       end
-    }
-
-    use {
-      "jayp0521/mason-null-ls.nvim",
-      after = {
-        "null-ls.nvim",
-        "mason.nvim",
-      },
-      config = function()
-        require("mason-null-ls").setup({
-          automatic_installation = true,
-        })
-        require("mason-null-ls").check_install(true)
-      end,
     }
 
     -- builtin lsp
@@ -127,6 +111,10 @@ packer.startup({
       },
     })
 
+    use({
+      "wellle/context.vim",
+    })
+
     -- Auto pairs
     use({
       "windwp/nvim-autopairs",
@@ -153,9 +141,6 @@ packer.startup({
       after = "nvim-treesitter",
     })
 
-    -- Better quick fix
-    use("kevinhwang91/nvim-bqf")
-
     -- File finder
     use({
       "nvim-telescope/telescope.nvim",
@@ -167,14 +152,16 @@ packer.startup({
 
     -- Bufferline
     use({
-      "romgrk/barbar.nvim",
-      after = "nvim-web-devicons",
+      "akinsho/bufferline.nvim",
+      requires = 'nvim-tree/nvim-web-devicons',
+      config = function()
+        require("bufferline").setup {}
+      end
     })
 
     -- Statusline
     use({
       "nvim-lualine/lualine.nvim",
-      after = "barbar.nvim",
       config = function()
         require("configs.lualine")
       end,
@@ -235,7 +222,7 @@ packer.startup({
     use({
       "jose-elias-alvarez/null-ls.nvim",
       after = {
-        "masin.nvim"
+        "mason.nvim"
       },
       config = function()
         require("configs.nullls")
@@ -255,18 +242,20 @@ packer.startup({
     use({
       "lewis6991/gitsigns.nvim",
       config = function()
-        require('gitsigns').setup({
+        require("gitsigns").setup({
           current_line_blame = true,
           current_line_blame_opts = {
             virt_text = true,
-            virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+            virt_text_pos = "eol", -- "eol" | "overlay" | "right_align"
             delay = 500,
             ignore_whitespace = false,
           },
         })
       end
     })
+
+
+    --wakatime
+    use('wakatime/vim-wakatime')
   end,
 })
-
-return M

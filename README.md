@@ -6,7 +6,6 @@ These are my settings for neovim. Plugins can be found below (they are auto gene
 - [nvim-lua/plenary.nvim](http://github.com/nvim-lua/plenary.nvim) - plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
 - [neovim/nvim-lspconfig](http://github.com/neovim/nvim-lspconfig) - Quickstart configs for Nvim LSP
 - [hrsh7th/cmp-nvim-lsp](http://github.com/hrsh7th/cmp-nvim-lsp) - nvim-cmp source for neovim builtin LSP client
-- [kevinhwang91/nvim-bqf](http://github.com/kevinhwang91/nvim-bqf) - Better quickfix window in Neovim, polish old quickfix window.
 - [kyazdani42/nvim-web-devicons](http://github.com/kyazdani42/nvim-web-devicons) - lua `fork` of vim-web-devicons for neovim
 - [simrat39/symbols-outline.nvim](http://github.com/simrat39/symbols-outline.nvim) - A tree like view for symbols in Neovim using the Language Server Protocol. Supports all your favourite languages.
 - [jwalton512/vim-blade](http://github.com/jwalton512/vim-blade) - Vim syntax highlighting for Blade templates.
@@ -19,14 +18,15 @@ These are my settings for neovim. Plugins can be found below (they are auto gene
 - [hrsh7th/vim-vsnip](http://github.com/hrsh7th/vim-vsnip) - Snippet plugin for vim/nvim that supports LSP/VSCode's snippet format.
 - [hrsh7th/cmp-vsnip](http://github.com/hrsh7th/cmp-vsnip) - nvim-cmp source for vim-vsnip
 - [nvim-treesitter/nvim-treesitter](http://github.com/nvim-treesitter/nvim-treesitter) - Nvim Treesitter configurations and abstraction layer
+- [wellle/context.vim](http://github.com/wellle/context.vim) - Vim plugin that shows the context of the currently visible buffer contents
 - [windwp/nvim-autopairs](http://github.com/windwp/nvim-autopairs) - autopairs for neovim written by lua
 - [rcarriga/nvim-notify](http://github.com/rcarriga/nvim-notify) - A fancy, configurable, notification manager for NeoVim
 - [norcalli/nvim-colorizer.lua](http://github.com/norcalli/nvim-colorizer.lua) - The fastest Neovim colorizer.
 - [nvim-telescope/telescope.nvim](http://github.com/nvim-telescope/telescope.nvim) - Find, Filter, Preview, Pick. All lua, all the time.
-- [romgrk/barbar.nvim](http://github.com/romgrk/barbar.nvim) - The neovim tabline plugin.
+- [akinsho/bufferline.nvim](http://github.com/akinsho/bufferline.nvim) - A snazzy bufferline for Neovim
 - [nvim-lualine/lualine.nvim](http://github.com/nvim-lualine/lualine.nvim) - A blazing fast and easy to configure neovim statusline plugin written in pure lua.
 - [kyazdani42/nvim-tree.lua](http://github.com/kyazdani42/nvim-tree.lua) - A file explorer tree for neovim written in lua
-- [catppuccin/nvim](http://github.com/catppuccin/nvim) - 🍨 Soothing pastel theme for NeoVim
+- [catppuccin/nvim](http://github.com/catppuccin/nvim) - 🍨 Soothing pastel theme for (Neo)vim
 - [akinsho/nvim-toggleterm.lua](http://github.com/akinsho/nvim-toggleterm.lua) - A neovim lua plugin to help easily manage multiple terminal windows
 - [lukas-reineke/indent-blankline.nvim](http://github.com/lukas-reineke/indent-blankline.nvim) - Indent guides  for Neovim
 - [jose-elias-alvarez/null-ls.nvim](http://github.com/jose-elias-alvarez/null-ls.nvim) - Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
