@@ -256,6 +256,6 @@ packer.startup({
 
 
     --wakatime
-    use({ 'wakatime/vim-wakatime' })
+    use({ "wakatime/vim-wakatime" })
   end,
 })
