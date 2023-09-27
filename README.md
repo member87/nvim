@@ -32,4 +32,3 @@ These are my settings for neovim. Plugins can be found below.
 - [jose-elias-alvarez/null-ls.nvim](http://github.com/jose-elias-alvarez/null-ls.nvim) - Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 - [folke/which-key.nvim](http://github.com/folke/which-key.nvim) - 💥   Create key bindings that stick. WhichKey is a lua plugin for Neovim 0.5 that displays a popup with possible keybindings of the command you started typing.
 - [lewis6991/gitsigns.nvim](http://github.com/lewis6991/gitsigns.nvim) - Git integration for buffers
-- [wakatime/vim-wakatime](http://github.com/wakatime/vim-wakatime) - Vim plugin for automatic time tracking and metrics generated from your programming activity.
