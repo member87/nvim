@@ -4,8 +4,11 @@ plugins = []
 
 def get_description(plugin):
     r = requests.get(f"https://api.github.com/repos/{plugin}")
-    return r.json()["description"]
+    json = r.json()
+    if("description" in json):
+        return json["description"]
 
+    return ""
 with open("lua/core/plugins.lua") as f:
     content = f.read()
     regex = 'use\("(.*?)"'
