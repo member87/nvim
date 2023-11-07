@@ -27,7 +27,6 @@ These are my settings for neovim. Plugins can be found below.
 - [nvim-lualine/lualine.nvim](http://github.com/nvim-lualine/lualine.nvim) - A blazing fast and easy to configure neovim statusline plugin written in pure lua.
 - [kyazdani42/nvim-tree.lua](http://github.com/kyazdani42/nvim-tree.lua) - A file explorer tree for neovim written in lua
 - [catppuccin/nvim](http://github.com/catppuccin/nvim) - 🍨 Soothing pastel theme for (Neo)vim
-- [akinsho/nvim-toggleterm.lua](http://github.com/akinsho/nvim-toggleterm.lua) - A neovim lua plugin to help easily manage multiple terminal windows
 - [lukas-reineke/indent-blankline.nvim](http://github.com/lukas-reineke/indent-blankline.nvim) - Indent guides  for Neovim
 - [jose-elias-alvarez/null-ls.nvim](http://github.com/jose-elias-alvarez/null-ls.nvim) - Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 - [folke/which-key.nvim](http://github.com/folke/which-key.nvim) - 💥   Create key bindings that stick. WhichKey is a lua plugin for Neovim 0.5 that displays a popup with possible keybindings of the command you started typing.
