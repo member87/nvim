@@ -18,6 +18,7 @@ These are my settings for neovim. Plugins can be found below.
 - [hrsh7th/vim-vsnip](http://github.com/hrsh7th/vim-vsnip) - Snippet plugin for vim/nvim that supports LSP/VSCode's snippet format.
 - [hrsh7th/cmp-vsnip](http://github.com/hrsh7th/cmp-vsnip) - nvim-cmp source for vim-vsnip
 - [nvim-treesitter/nvim-treesitter](http://github.com/nvim-treesitter/nvim-treesitter) - Nvim Treesitter configurations and abstraction layer
+- [windwp/nvim-ts-autotag](http://github.com/windwp/nvim-ts-autotag) - Use treesitter to auto close and auto rename html tag
 - [wellle/context.vim](http://github.com/wellle/context.vim) - Vim plugin that shows the context of the currently visible buffer contents
 - [windwp/nvim-autopairs](http://github.com/windwp/nvim-autopairs) - autopairs for neovim written by lua
 - [rcarriga/nvim-notify](http://github.com/rcarriga/nvim-notify) - A fancy, configurable, notification manager for NeoVim
