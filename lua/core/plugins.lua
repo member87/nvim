@@ -38,7 +38,6 @@ packer.startup({
 
     use({
       "hrsh7th/nvim-cmp",
-      event = "BufRead",
       config = function()
         require("configs.cmp-nvim")
       end,
@@ -88,28 +87,19 @@ packer.startup({
     -- Syntax highlighting
     use({
       "nvim-treesitter/nvim-treesitter",
-      run = ":TSUpdate",
-      event = "BufRead",
-      cmd = {
-        "TSInstall",
-        "TSInstallInfo",
-        "TSInstallSync",
-        "TSUninstall",
-        "TSUpdate",
-        "TSUpdateSync",
-        "TSDisableAll",
-        "TSEnableAll",
-      },
       config = function()
         require("configs.treesitter")
       end,
-      requires = {
-        {
-          "p00f/nvim-ts-rainbow",
-          after = "nvim-treesitter",
-        },
-      },
     })
+
+    use({
+      "windwp/nvim-ts-autotag",
+      requires = "nvim-treesitter/nvim-treesitter",
+      config = function()
+        require('nvim-ts-autotag').setup()
+      end
+    })
+
 
     use({
       "wellle/context.vim",
@@ -237,6 +227,5 @@ packer.startup({
         })
       end
     })
-
   end,
 })
