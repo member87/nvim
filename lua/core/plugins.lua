@@ -190,15 +190,6 @@ packer.startup({
     -- Icons
     use("kyazdani42/nvim-web-devicons")
 
-    -- Terminal
-    use({
-      "akinsho/nvim-toggleterm.lua",
-      cmd = "ToggleTerm",
-      config = function()
-        require("configs.toggleterm")
-      end,
-    })
-
     -- Symbols outline
     use("simrat39/symbols-outline.nvim")
 
@@ -206,14 +197,7 @@ packer.startup({
     use({
       "lukas-reineke/indent-blankline.nvim",
       config = function()
-        vim.opt.list = true
-        vim.opt.listchars:append "space:⋅"
-
-        require("indent_blankline").setup({
-          space_char_blankline = " ",
-          show_current_context = true,
-          show_current_context_start = true,
-        })
+        require("ibl").setup()
       end,
       after = "nvim-treesitter"
     })
