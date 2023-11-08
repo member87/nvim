@@ -31,9 +31,6 @@ map("n", "<A-9>", "<cmd>BufferGoto 9<CR>", opts)
 -- Nvim NvimTreeToggle
 map("n", "<A-m>", "<cmd>NvimTreeToggle<CR>", opts)
 
--- Toggle term
-map("n", "<A-t>", "<cmd>ToggleTerm<CR>", opts)
-
 -- open symbols outline
 map("n", "<A-s>", "<cmd>SymbolsOutline<CR>", opts)
 
