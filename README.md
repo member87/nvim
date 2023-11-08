@@ -32,3 +32,6 @@ These are my settings for neovim. Plugins can be found below.
 - [jose-elias-alvarez/null-ls.nvim](http://github.com/jose-elias-alvarez/null-ls.nvim) - Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 - [folke/which-key.nvim](http://github.com/folke/which-key.nvim) - 💥   Create key bindings that stick. WhichKey is a lua plugin for Neovim 0.5 that displays a popup with possible keybindings of the command you started typing.
 - [lewis6991/gitsigns.nvim](http://github.com/lewis6991/gitsigns.nvim) - Git integration for buffers
+- [zbirenbaum/copilot.lua](http://github.com/zbirenbaum/copilot.lua) - Fully featured & enhanced replacement for copilot.vim complete with API for interacting with Github Copilot
+- [zbirenbaum/copilot-cmp](http://github.com/zbirenbaum/copilot-cmp) - Lua plugin to turn github copilot into a cmp source
+- [onsails/lspkind.nvim](http://github.com/onsails/lspkind.nvim) - vscode-like pictograms for neovim lsp completion items
