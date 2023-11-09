@@ -28,11 +28,25 @@ local kind_icons = {
   Event = "",
   Operator = "",
   TypeParameter = "",
-  Copilot = ""
 }
+
+
+local function border(hl_name)
+  return {
+    { "╭", hl_name },
+    { "─", hl_name },
+    { "╮", hl_name },
+    { "│", hl_name },
+    { "╯", hl_name },
+    { "─", hl_name },
+    { "╰", hl_name },
+    { "│", hl_name },
+  }
+end
 
 cmp.setup({
   formatting = {
+    fields = { "kind", "abbr", "menu" },
     format = lspkind.cmp_format({
       mode = "symbol",
       max_width = 70,
@@ -46,6 +60,17 @@ cmp.setup({
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
     end,
+  },
+  window = {
+    completion = {
+      side_padding = 1,
+      --winhighlight = "Normal:Pmenu,CursorLine:CmpSel,Search:None,FloarBorder:CmpBorder",
+      scrollbar = false,
+    },
+    documentation = {
+      border = border "CmpDocBorder",
+      winhighlight = "Normal:CmpDoc",
+    },
   },
   mapping = {
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),

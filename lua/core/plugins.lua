@@ -169,39 +169,15 @@ packer.startup({
     use({
       "catppuccin/nvim",
       config = function()
-        local catppuccin = require("catppuccin")
-        catppuccin.setup({})
-
-        vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
-        vim.cmd("colorscheme catppuccin")
+        vim.cmd.colorscheme "catppuccin"
+        require("catppuccin").setup({
+          flavour = "mocha",
+        })
       end,
     })
 
     -- Icons
     use("kyazdani42/nvim-web-devicons")
-
-    -- Symbols outline
-    use("simrat39/symbols-outline.nvim")
-
-    -- Indent Blankline
-    use({
-      "lukas-reineke/indent-blankline.nvim",
-      config = function()
-        require("ibl").setup()
-      end,
-      after = "nvim-treesitter"
-    })
-
-    -- Null-ls
-    use({
-      "jose-elias-alvarez/null-ls.nvim",
-      after = {
-        "mason.nvim"
-      },
-      config = function()
-        require("configs.nullls")
-      end,
-    })
 
     -- Laravel
     use("jwalton512/vim-blade")
