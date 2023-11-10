@@ -7,14 +7,14 @@ return {
 
   -- LSP
   {
-    "williamboman/mason-lspconfig.nvim"
-  },
-  {
     "williamboman/mason.nvim",
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup()
-    end
+    end,
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim"
+    }
   },
   {
     "neovim/nvim-lspconfig"
@@ -38,7 +38,10 @@ return {
     "hrsh7th/cmp-cmdline"
   },
   {
-    "ray-x/lsp_signature.nvim"
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    opts = {},
+    config = function(_, opts) require'lsp_signature'.setup(opts) end
   },
   {
     "hrsh7th/vim-vsnip",
