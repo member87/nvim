@@ -7,17 +7,15 @@ return {
 
   -- LSP
   {
-    "williamboman/mason.nvim",
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim"
+    },
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup()
     end,
-    dependencies = {
-      "williamboman/mason-lspconfig.nvim"
-    }
-  },
-  {
-    "neovim/nvim-lspconfig"
   },
   {
     "hrsh7th/nvim-cmp",
@@ -41,7 +39,7 @@ return {
     "ray-x/lsp_signature.nvim",
     event = "VeryLazy",
     opts = {},
-    config = function(_, opts) require'lsp_signature'.setup(opts) end
+    config = function(_, opts) require 'lsp_signature'.setup(opts) end
   },
   {
     "hrsh7th/vim-vsnip",
@@ -69,12 +67,14 @@ return {
     end
   },
 
-  -- Formatting 
+  -- Formatting
   {
     "windwp/nvim-ts-autotag",
     dependencies = {
       "nvim-treesitter/nvim-treesitter"
     },
+    build = ":TSUpdate",
+    version = false,
     config = function()
       require('nvim-ts-autotag').setup()
     end
@@ -92,7 +92,7 @@ return {
   },
 
   -- UI
-  { 
+  {
     "kyazdani42/nvim-tree.lua",
     config = function()
       require("configs.tree")
@@ -119,9 +119,9 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-      config = function()
-        require("configs.treesitter")
-      end,
+    config = function()
+      require("configs.treesitter")
+    end,
   },
   {
     "akinsho/bufferline.nvim",
@@ -178,3 +178,4 @@ return {
     "onsails/lspkind.nvim",
   }
 }
+

@@ -1,5 +1,6 @@
 local set = vim.opt
 
+set.termguicolors = true
 set.autoindent = true
 set.expandtab = true
 set.tabstop = 2
