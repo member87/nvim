@@ -11,10 +11,9 @@ def get_description(plugin):
     return ""
 with open("lua/core/plugins.lua") as f:
     content = f.read()
-    regex = 'use\("(.*?)"'
+    regex = '\{\s+"(.*?)"'
     plugins += re.findall(regex, content)
-    regex = 'use\({\s+"(.*?)"'
-    plugins += re.findall(regex, content)
+
 
 
 new_readme = ""

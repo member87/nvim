@@ -66,6 +66,12 @@ return {
       require("copilot_cmp").setup()
     end
   },
+  {
+    'nvimdev/lspsaga.nvim',
+    config = function()
+      require('lspsaga').setup({})
+    end,
+  },
 
   -- Formatting
   {
@@ -83,6 +89,12 @@ return {
     "windwp/nvim-autopairs",
     config = function()
       require("configs.nvim-autopairs")
+    end,
+  },
+  {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
     end,
   },
 
@@ -178,4 +190,3 @@ return {
     "onsails/lspkind.nvim",
   }
 }
-
