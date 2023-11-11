@@ -20,6 +20,7 @@ These are my settings for neovim. Plugins can be found below.
 - [windwp/nvim-ts-autotag](http://github.com/windwp/nvim-ts-autotag) - Use treesitter to auto close and auto rename html tag
 - [nvim-treesitter/nvim-treesitter](http://github.com/nvim-treesitter/nvim-treesitter) - Nvim Treesitter configurations and abstraction layer
 - [windwp/nvim-autopairs](http://github.com/windwp/nvim-autopairs) - autopairs for neovim written by lua
+- [numToStr/Comment.nvim](http://github.com/numToStr/Comment.nvim) - :brain: :muscle: // Smart and powerful comment plugin for neovim. Supports treesitter, dot repeat, left-right/up-down motions, hooks, and more
 - [wellle/context.vim](http://github.com/wellle/context.vim) - Vim plugin that shows the context of the currently visible buffer contents
 - [kyazdani42/nvim-tree.lua](http://github.com/kyazdani42/nvim-tree.lua) - A file explorer tree for neovim written in lua
 - [rcarriga/nvim-notify](http://github.com/rcarriga/nvim-notify) - A fancy, configurable, notification manager for NeoVim
