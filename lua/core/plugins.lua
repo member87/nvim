@@ -24,12 +24,14 @@ function lazy.load_plugins()
   })
 end
 
-function lazy.load(plugin)
+function lazy.load(plugins)
   if not lazy.plugs then
     lazy.plugs = {}
   end
-  table.insert(lazy.plugs, plugin)
+
+  for k, v in pairs(plugins) do
+    table.insert(lazy.plugs, v)
+  end
 end
 
 return lazy
-

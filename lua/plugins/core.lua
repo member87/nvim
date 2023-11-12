@@ -1,5 +1,7 @@
 local l = require("core.plugins").load
 
 l({
-  "nvim-lua/plenary.nvim"
+  {
+    "nvim-lua/plenary.nvim"
+  }
 })
