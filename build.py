@@ -1,4 +1,4 @@
-import re, requests
+import re, requests, os
 
 plugins = []
 
@@ -9,12 +9,13 @@ def get_description(plugin):
         return json["description"]
 
     return ""
-with open("lua/core/plugins.lua") as f:
-    content = f.read()
-    regex = 'use\("(.*?)"'
-    plugins += re.findall(regex, content)
-    regex = 'use\({\s+"(.*?)"'
-    plugins += re.findall(regex, content)
+
+
+for file in os.listdir("lua/plugins"):
+    with open(f"lua/plugins/{file}") as f:
+        content = f.read()
+        regex = 'l\(\{\s+"(.*?)"'
+        plugins += re.findall(regex, content)
 
 
 new_readme = ""
