@@ -21,7 +21,7 @@ wk.register({
     },
     b = { "<cmd>ToggleBlame virtual<CR>", "Toggle git blame" }
   },
-  ["K"] = { "<cnd>Lspsage hover_doc<CR>", "Hover documentation" },
+  ["K"] = { "<cmd>Lspsaga hover_doc<CR>", "Hover documentation" },
   r = {
     n = { "<cmd>Lspsaga rename<CR>", "Rename" },
   },
