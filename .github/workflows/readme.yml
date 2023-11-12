@@ -2,7 +2,7 @@ name: Update ReadME
 
 on: push
 
-jobsNo such file or directory:
+jobs:
   update:
     runs-on: ubuntu-latest
     steps:
