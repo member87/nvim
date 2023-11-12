@@ -1,192 +1,35 @@
-return {
+local lazy = {}
 
-  -- Lua Functions
-  {
-    "nvim-lua/plenary.nvim"
-  },
+function lazy.bootstrap()
+  local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+  if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+      "git",
+      "clone",
+      "--filter=blob:none",
+      "https://github.com/folke/lazy.nvim.git",
+      "--branch=stable", -- latest stable release
+      lazypath,
+    })
+  end
+  vim.opt.rtp:prepend(lazypath)
+end
 
-  -- LSP
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim"
-    },
-    config = function()
-      require("mason").setup()
-      require("mason-lspconfig").setup()
-    end,
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    config = function()
-      require("configs.cmp-nvim")
-    end,
-  },
-  {
-    "hrsh7th/cmp-nvim-lsp"
-  },
-  {
-    "hrsh7th/cmp-buffer"
-  },
-  {
-    "hrsh7th/cmp-path"
-  },
-  {
-    "hrsh7th/cmp-cmdline"
-  },
-  {
-    "ray-x/lsp_signature.nvim",
-    event = "VeryLazy",
-    opts = {},
-    config = function(_, opts) require 'lsp_signature'.setup(opts) end
-  },
-  {
-    "hrsh7th/vim-vsnip",
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-    }
-  },
-  {
-    "hrsh7th/cmp-vsnip"
-  },
-  {
-    "zbirenbaum/copilot.lua",
-    config = function()
-      require("copilot").setup({
-        suggestion = { enabled = false },
-        panel = { enabled = false },
-      })
-    end
-  },
-  {
-    "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua" },
-    config = function()
-      require("copilot_cmp").setup()
-    end
-  },
-  {
-    'nvimdev/lspsaga.nvim',
-    config = function()
-      require('lspsaga').setup({})
-    end,
-  },
+function lazy.load_plugins()
+  for _, file in ipairs(vim.fn.readdir(vim.fn.stdpath('config') .. '/lua/plugins', [[v:val =~ '\.lua$']])) do
+    require('plugins.' .. file:gsub('%.lua$', ''))
+  end
+  require('lazy').setup({
+    lazy.plugs,
+  })
+end
 
-  -- Formatting
-  {
-    "windwp/nvim-ts-autotag",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter"
-    },
-    build = ":TSUpdate",
-    version = false,
-    config = function()
-      require('nvim-ts-autotag').setup()
-    end
-  },
-  {
-    "windwp/nvim-autopairs",
-    config = function()
-      require("configs.nvim-autopairs")
-    end,
-  },
-  {
-    "numToStr/Comment.nvim",
-    config = function()
-      require('Comment').setup()
-    end,
-  },
+function lazy.load(plugin)
+  if not lazy.plugs then
+    lazy.plugs = {}
+  end
+  table.insert(lazy.plugs, plugin)
+end
 
-  -- Context
-  {
-    "wellle/context.vim",
-  },
+return lazy
 
-  -- UI
-  {
-    "kyazdani42/nvim-tree.lua",
-    config = function()
-      require("configs.tree")
-    end,
-  },
-  {
-    "rcarriga/nvim-notify",
-    config = function()
-      vim.notify = require("notify")
-    end,
-  },
-  {
-    "norcalli/nvim-colorizer.lua",
-    config = function()
-      require("configs.colorizer")
-    end,
-  },
-  {
-    "nvim-telescope/telescope.nvim",
-    cmd = "Telescope",
-    config = function()
-      require("configs.telescope")
-    end,
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    config = function()
-      require("configs.treesitter")
-    end,
-  },
-  {
-    "akinsho/bufferline.nvim",
-    requires = 'nvim-tree/nvim-web-devicons',
-    config = function()
-      require("bufferline").setup {}
-    end
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    config = function()
-      require("configs.lualine")
-    end,
-  },
-  {
-    "kyazdani42/nvim-tree.lua",
-    config = function()
-      require("configs.tree")
-    end,
-  },
-  {
-    "catppuccin/nvim",
-    config = function()
-      vim.cmd.colorscheme "catppuccin"
-      require("catppuccin").setup({
-        flavour = "mocha",
-      })
-    end,
-  },
-  {
-    "kyazdani42/nvim-web-devicons"
-  },
-  {
-    "folke/which-key.nvim",
-    config = function()
-      require("configs.whichkey")
-    end,
-  },
-  {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require("gitsigns").setup({
-        current_line_blame = true,
-        current_line_blame_opts = {
-          virt_text = true,
-          virt_text_pos = "eol", -- "eol" | "overlay" | "right_align"
-          delay = 500,
-          ignore_whitespace = false,
-        },
-      })
-    end
-  },
-  {
-    "onsails/lspkind.nvim",
-  }
-}
