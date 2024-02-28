@@ -12,6 +12,5 @@ for _, source in ipairs(sources) do
   end
 end
 
-
 plugins.bootstrap()
 plugins.load_plugins()
