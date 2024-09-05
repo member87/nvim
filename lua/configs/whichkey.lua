@@ -1,40 +1,28 @@
 local wk = require("which-key")
-local map = vim.api.nvim_set_keymap
 
 vim.g.mapleader = " "
 
 wk.setup()
 
-wk.register({
-  ["<leader>"] = {
-    f = {
-      name = "Finder",
-      f = { "<cmd>Telescope find_files<CR>", "Find files" },
-      g = { "<cmd>Telescope live_grep<CR>", "Live grep" },
-      r = { "<cmd>Telescope oldfiles<CR>", "Open recent files" },
-      u = { "<cmd>Lspsaga finder<CR>", "Find references" },
-    },
-    d = {
-      name = "Lsp Definition",
-      g = { "<cmd>Lspsaga goto_definition<CR>", "Goto definition" },
-      f = { "<cmd>Lspsaga peek_definition<CR>", "Peek definition" },
-    },
-    b = { "<cmd>ToggleBlame virtual<CR>", "Toggle git blame" },
-    s = { "<cmd>vsplit<CR>", "Split vertically" },
-  },
-  ["K"] = { "<cmd>Lspsaga hover_doc<CR>", "Hover documentation" },
-  r = {
-    n = { "<cmd>Lspsaga rename<CR>", "Rename" },
-  },
-  c = {
-    a = { "<cmd>Lspsaga code_action<CR>", "Code Actions" }
-  },
-  ["."] = { "<cmd>BufferLineCycleNext<CR>", "Next bugger" },
-  [","] = { "<cmd>BufferLineCyclePrev<CR>", "Previous buffer" }
+wk.add({
+  { "[b",         "<cmd>BufferLineCyclePrev<CR>",          desc = "Previous buffer" },
+  { "b]",         "<cmd>BufferLineCycleNext<CR>",          desc = "Next bugger" },
+  { "<leader>b",  "<cmd>ToggleBlame virtual<CR>",          desc = "Toggle git blame" },
+  { "<leader>d",  group = "Lsp Definition" },
+  { "<leader>df", "<cmd>Lspsaga peek_definition<CR>",      desc = "Peek definition" },
+  { "<leader>dg", "<cmd>Lspsaga goto_definition<CR>",      desc = "Goto definition" },
+  { "<leader>f",  group = "Finder" },
+  { "<leader>ff", "<cmd>Telescope find_files<CR>",         desc = "Find files" },
+  { "<leader>fg", "<cmd>Telescope live_grep<CR>",          desc = "Live grep" },
+  { "<leader>fr", "<cmd>Telescope oldfiles<CR>",           desc = "Open recent files" },
+  { "<leader>fu", "<cmd>Lspsaga finder<CR>",               desc = "Find references" },
+  { "<leader>s",  "<cmd>vsplit<CR>",                       desc = "Split vertically" },
+  { "K",          "<cmd>Lspsaga hover_doc<CR>",            desc = "Hover documentation" },
+  { "ca",         "<cmd>Lspsaga code_action<CR>",          desc = "Code Actions" },
+  { "qf",         "<cmd>Lspsaga show_buf_diagnostics<CR>", desc = "Show diagnostics" },
+  { "rn",         "<cmd>Lspsaga rename<CR>",               desc = "Rename" },
+  { "<leader>m",  "<cmd>NvimTreeToggle<CR>",               desc = "Toggle NvimTree" }
 })
-
-
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 
 local on_attach = function(client, bufnr)

@@ -51,7 +51,7 @@ cmp.setup({
     format = lspkind.cmp_format({
       mode = "symbol",
       max_width = 70,
-      symbol_map = kind_icons
+      symbol_map = kind_icons,
     })
   },
   experimental = {
@@ -69,7 +69,7 @@ cmp.setup({
       scrollbar = false,
     },
     documentation = {
-      border = border "CmpDocBorder",
+      border = border "CmpDofBorder",
       winhighlight = "Normal:CmpDoc",
     },
   },
