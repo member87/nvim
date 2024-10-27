@@ -15,5 +15,7 @@ set.relativenumber = true
 set.number = true
 set.cursorline = true
 set.wrap = false
+set.signcolumn = "yes"
 
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+

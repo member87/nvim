@@ -6,5 +6,5 @@ l({
   },
   {
     "wakatime/vim-wakatime"
-  }
+  },
 })
