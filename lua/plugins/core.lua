@@ -4,7 +4,4 @@ l({
   {
     "nvim-lua/plenary.nvim"
   },
-  {
-    "wakatime/vim-wakatime"
-  },
 })

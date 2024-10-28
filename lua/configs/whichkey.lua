@@ -5,8 +5,6 @@ vim.g.mapleader = " "
 wk.setup()
 
 wk.add({
-  { "[b",         "<cmd>BufferLineCyclePrev<CR>",          desc = "Previous buffer" },
-  { "b]",         "<cmd>BufferLineCycleNext<CR>",          desc = "Next bugger" },
   { "<leader>b",  "<cmd>ToggleBlame virtual<CR>",          desc = "Toggle git blame" },
   { "<leader>d",  group = "Lsp Definition" },
   { "<leader>df", "<cmd>Lspsaga peek_definition<CR>",      desc = "Peek definition" },

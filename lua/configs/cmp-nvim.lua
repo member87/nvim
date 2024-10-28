@@ -3,56 +3,23 @@ local lspkind = require('lspkind')
 
 
 local kind_icons = {
-  Text = "",
-  Method = "",
-  Function = "",
-  Constructor = "",
-  Field = "",
-  Variable = "",
-  Class = "ﴯ",
-  Interface = "",
-  Module = "",
-  Property = "ﰠ",
-  Unit = "",
-  Value = "",
-  Enum = "",
-  Keyword = "",
-  Snippet = "",
-  Color = "",
-  File = "",
-  Reference = "",
-  Folder = "",
-  EnumMember = "",
-  Constant = "",
-  Struct = "",
-  Event = "",
-  Operator = "",
   TypeParameter = "",
   Copilot = ""
 }
 
-
-local function border(hl_name)
-  return {
-    { "╭", hl_name },
-    { "─", hl_name },
-    { "╮", hl_name },
-    { "│", hl_name },
-    { "╯", hl_name },
-    { "─", hl_name },
-    { "╰", hl_name },
-    { "│", hl_name },
-  }
-end
-
 cmp.setup({
   formatting = {
     fields = { "kind", "abbr", "menu" },
-    format = lspkind.cmp_format({
-      mode = "symbol",
-      max_width = 70,
-      symbol_map = kind_icons,
-    })
+    format = function(_, vim_item)
+      if(vim_item.kind == "Copilot") then
+        vim_item.kind = kind_icons.Copilot .. " Copilot"
+      else
+        local icon, hl = require("mini.icons").get("lsp", vim_item.kind)
+        vim_item.kind = icon .. " " .. vim_item.kind
+        vim_item.kind_hl_group = hl
+      end
+      return vim_item
+    end,
   },
   experimental = {
     ghost_text = true
@@ -67,10 +34,6 @@ cmp.setup({
       side_padding = 1,
       --winhighlight = "Normal:Pmenu,CursorLine:CmpSel,Search:None,FloarBorder:CmpBorder",
       scrollbar = false,
-    },
-    documentation = {
-      border = border "CmpDofBorder",
-      winhighlight = "Normal:CmpDoc",
     },
   },
   mapping = {
