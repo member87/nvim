@@ -120,4 +120,5 @@ l({
   },
   {
     "FabijanZulj/blame.nvim"
-  } })
+  },
+})
