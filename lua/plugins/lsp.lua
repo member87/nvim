@@ -10,6 +10,17 @@ l({
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup()
+      local nvim_lsp = require("lspconfig")
+      nvim_lsp.nil_ls.setup({
+        autostart = true,
+        settings = {
+          ['nil'] = {
+            formatting = {
+              command = { "nixfmt" },
+            },
+          },
+        },
+      })
     end,
   },
   {
@@ -27,7 +38,7 @@ l({
     "mfussenegger/nvim-lint",
     config = function()
       require('lint').linters_by_ft = {
-       astro = { 'eslint_d' },
+        astro = { 'eslint_d' },
       }
 
       vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
