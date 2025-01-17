@@ -8,19 +8,7 @@ l({
       "williamboman/mason-lspconfig.nvim"
     },
     config = function()
-      require("mason").setup()
-      require("mason-lspconfig").setup()
-      local nvim_lsp = require("lspconfig")
-      nvim_lsp.nil_ls.setup({
-        autostart = true,
-        settings = {
-          ['nil'] = {
-            formatting = {
-              command = { "nixfmt" },
-            },
-          },
-        },
-      })
+      require("configs.lsp")
     end,
   },
   {
