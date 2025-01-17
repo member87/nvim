@@ -16,6 +16,6 @@ set.number = true
 set.cursorline = true
 set.wrap = false
 set.signcolumn = "yes"
-set.laststatus = 0
+set.laststatus = 3
 
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]

@@ -27,6 +27,7 @@ wk.add({
   { "<leader>m",  "<cmd>NvimTreeToggle<CR>",                desc = "Toggle NvimTree" },
   { "<leader>gg", function() Snacks.lazygit() end,          desc = "Open LazyGit" },
   { "<leader>gb", function() Snacks.gitbrowse() end,        desc = "Open git repo" },
+  { "<leader>aa", "<cmd>AvanteToggle<CR>",                  desc = "Toggle Avante" },
 })
 
 
