@@ -29,7 +29,7 @@ l({
   {
     "nvim-lualine/lualine.nvim",
     config = function()
-      -- require("configs.lualine")
+      require("configs.lualine")
     end,
   },
   {
