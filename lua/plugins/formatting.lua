@@ -19,15 +19,6 @@ l({
     end,
   },
   {
-    "numToStr/Comment.nvim",
-    config = function()
-      require('Comment').setup()
-    end,
-  },
-  {
-    "wellle/context.vim",
-  },
-  {
     "prettier/vim-prettier",
     config = function()
       vim.g['prettier#autoformat'] = 1

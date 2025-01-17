@@ -24,7 +24,7 @@ wk.add({
   { "ca",         "<cmd>Lspsaga code_action<CR>",           desc = "Code Actions" },
   { "qf",         "<cmd>Lspsaga show_buf_diagnostics<CR>",  desc = "Show diagnostics" },
   { "rn",         "<cmd>Lspsaga rename<CR>",                desc = "Rename" },
-  { "<leader>m",  "<cmd>NvimTreeToggle<CR>",                desc = "Toggle NvimTree" },
+  { "<leader>m",  "<cmd>Neotree toggle<CR>",                desc = "Toggle NvimTree" },
   { "<leader>gg", function() Snacks.lazygit() end,          desc = "Open LazyGit" },
   { "<leader>gb", function() Snacks.gitbrowse() end,        desc = "Open git repo" },
   { "<leader>aa", "<cmd>AvanteToggle<CR>",                  desc = "Toggle Avante" },

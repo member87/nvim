@@ -2,16 +2,15 @@ local l = require("core.plugins").load
 
 l({
   {
-    "kyazdani42/nvim-tree.lua",
-    config = function()
-      require("configs.tree")
-    end,
-  },
-  {
-    "norcalli/nvim-colorizer.lua",
-    config = function()
-      require("configs.colorizer")
-    end,
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+    opts = {
+      filesystem = { hijack_netrw_behavior = "open_current" }
+    }
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -27,12 +26,6 @@ l({
     end,
   },
   {
-    "nvim-lualine/lualine.nvim",
-    config = function()
-      require("configs.lualine")
-    end,
-  },
-  {
     "catppuccin/nvim",
     config = function()
       vim.cmd.colorscheme "catppuccin"
@@ -40,18 +33,6 @@ l({
         flavour = "mocha",
       })
     end,
-  },
-  {
-    "nvim-tree/nvim-web-devicons",
-  },
-  {
-    "echasnovski/mini.nvim",
-    config = function()
-      package.preload["nvim-web-devicons"] = function()
-        require("mini.icons").mock_nvim_web_devicons()
-        return package.loaded["nvim-web-devicons"]
-      end
-    end
   },
   {
     "folke/noice.nvim",
@@ -102,8 +83,5 @@ l({
   },
   {
     "onsails/lspkind.nvim",
-  },
-  {
-    "sindrets/diffview.nvim"
   },
 })
