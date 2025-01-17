@@ -16,5 +16,6 @@ set.number = true
 set.cursorline = true
 set.wrap = false
 set.signcolumn = "yes"
+set.laststatus = 0
 
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]

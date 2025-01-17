@@ -90,5 +90,28 @@ l({
       require('lspsaga').setup({})
     end,
   },
-
+  {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    lazy = false,
+    version = false, -- set this to "*" if you want to always pull the latest change, false to update on release
+    opts = {
+      -- add any opts here
+      provider = "copilot"
+    },
+    build = "make",
+    dependencies = {
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "zbirenbaum/copilot.lua",
+      {
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
+    },
+  }
 })

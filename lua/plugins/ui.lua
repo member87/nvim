@@ -29,13 +29,7 @@ l({
   {
     "nvim-lualine/lualine.nvim",
     config = function()
-      require("configs.lualine")
-    end,
-  },
-  {
-    "kyazdani42/nvim-tree.lua",
-    config = function()
-      require("configs.tree")
+      -- require("configs.lualine")
     end,
   },
   {
