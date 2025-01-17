@@ -1,6 +1,4 @@
-local l = require("core.plugins").load
-
-l({
+return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -114,4 +112,4 @@ l({
       },
     },
   }
-})
+}

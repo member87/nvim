@@ -1,6 +1,4 @@
-local l = require("core.plugins").load
-
-l({
+return {
   {
     "windwp/nvim-ts-autotag",
     dependencies = {
@@ -25,4 +23,4 @@ l({
       vim.g['prettier#autoformat_require_pragma'] = 0
     end
   },
-})
+}

@@ -1,9 +1,6 @@
-local l = require("core.plugins").load
-
-
 vim.cmd("highlight SnacksIndent guifg=#45475a")
 
-l({
+return {
   {
     "nvim-lua/plenary.nvim"
   },
@@ -47,4 +44,4 @@ l({
       end
     end
   }
-})
+}

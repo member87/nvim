@@ -1,6 +1,4 @@
-local l = require("core.plugins").load
-
-l({
+return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -84,4 +82,4 @@ l({
   {
     "onsails/lspkind.nvim",
   },
-})
+}

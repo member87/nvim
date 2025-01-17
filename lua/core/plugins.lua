@@ -19,19 +19,7 @@ function lazy.load_plugins()
   for _, file in ipairs(vim.fn.readdir(vim.fn.stdpath('config') .. '/lua/plugins', [[v:val =~ '\.lua$']])) do
     require('plugins.' .. file:gsub('%.lua$', ''))
   end
-  require('lazy').setup({
-    lazy.plugs,
-  })
-end
-
-function lazy.load(plugins)
-  if not lazy.plugs then
-    lazy.plugs = {}
-  end
-
-  for k, v in pairs(plugins) do
-    table.insert(lazy.plugs, v)
-  end
+  require('lazy').setup("plugins")
 end
 
 return lazy
