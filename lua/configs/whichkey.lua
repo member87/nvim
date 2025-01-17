@@ -28,9 +28,3 @@ wk.add({
   { "<leader>gb", function() Snacks.gitbrowse() end,        desc = "Open git repo" },
   { "<leader>aa", "<cmd>AvanteToggle<CR>",                  desc = "Toggle Avante" },
 })
-
-
-local on_attach = function(client, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-end
