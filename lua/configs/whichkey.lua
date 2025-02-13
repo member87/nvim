@@ -24,4 +24,6 @@ wk.add({
   { "<leader>gg", function() Snacks.lazygit() end,          desc = "Open LazyGit" },
   { "<leader>gb", function() Snacks.gitbrowse() end,        desc = "Open git repo" },
   { "<leader>aa", "<cmd>AvanteToggle<CR>",                  desc = "Toggle Avante" },
+  { "<leader>fd", "<cmd>FormatDisable<CR>",                 desc = "Disable Formatting" },
+  { "<leader>fe", "<cmd>FormatEnable<CR>",                  desc = "Enable Formatting" },
 })

@@ -19,6 +19,3 @@ set.signcolumn = "yes"
 set.laststatus = 3
 
 vim.g.mapleader = " "
-
-
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]

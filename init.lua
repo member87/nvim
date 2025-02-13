@@ -3,6 +3,7 @@ local plugins = require("core.plugins")
 
 local sources = {
   "core.options",
+  "core.commands"
 }
 
 for _, source in ipairs(sources) do

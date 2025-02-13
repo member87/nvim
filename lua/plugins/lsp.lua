@@ -35,20 +35,6 @@ return {
     end,
   },
   {
-    "stevearc/conform.nvim",
-    config = function()
-      require("conform").setup({
-        formatters_by_ft = {
-          astro = { "prettierd", "eslint_d" }
-        },
-        format_on_save = {
-          timeout_ms = 1000,
-          lsp_format = "fallback",
-        }
-      })
-    end
-  },
-  {
     "hrsh7th/cmp-nvim-lsp"
   },
   {
