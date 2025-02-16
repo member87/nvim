@@ -29,6 +29,9 @@ return {
       vim.cmd.colorscheme "catppuccin"
       require("catppuccin").setup({
         flavour = "mocha",
+        integrations = {
+          blink_cmp = true
+        }
       })
     end,
   },

@@ -3,22 +3,50 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim"
+      "williamboman/mason-lspconfig.nvim",
+      "saghen/blink.cmp"
     },
-    config = function()
-      require("configs.lsp")
-    end,
   },
   {
-    "hrsh7th/nvim-cmp",
+    "saghen/blink.cmp",
     dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
+      'rafamadriz/friendly-snippets',
+      'giuxtaposition/blink-cmp-copilot',
+      'xzbdmw/colorful-menu.nvim'
     },
-    event = "InsertEnter",
-    config = function()
-      require("configs.cmp-nvim")
-    end,
+    opts = {
+      sources = {
+        default = { 'copilot', 'lsp', 'path', 'snippets', 'buffer' },
+        providers = {
+          copilot = {
+            name = "copilot",
+            module = "blink-cmp-copilot",
+            score_offset = 100,
+            async = true,
+          },
+        },
+      },
+      appearance = {
+        use_nvim_cmp_as_default = true,
+      },
+      completion = {
+        menu = {
+          draw = {
+            columns = { { "kind_icon" }, { "label", gap = 1 } },
+            components = {
+              label = {
+                text = function(ctx)
+                  return require("colorful-menu").blink_components_text(ctx)
+                end,
+                highlight = function(ctx)
+                  return require("colorful-menu").blink_components_highlight(ctx)
+                end,
+              },
+            },
+          },
+        },
+      },
+    },
   },
   {
     "mfussenegger/nvim-lint",
@@ -26,31 +54,12 @@ return {
       require('lint').linters_by_ft = {
         astro = { 'eslint_d' },
       }
-
       vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
         callback = function()
           require("lint").try_lint()
         end,
       })
     end,
-  },
-  {
-    "hrsh7th/cmp-nvim-lsp"
-  },
-  {
-    "hrsh7th/cmp-buffer"
-  },
-  {
-    "hrsh7th/cmp-path"
-  },
-  {
-    "hrsh7th/vim-vsnip",
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-    }
-  },
-  {
-    "hrsh7th/cmp-vsnip"
   },
   {
     "zbirenbaum/copilot.lua",
@@ -62,11 +71,8 @@ return {
     end
   },
   {
-    "zbirenbaum/copilot-cmp",
+    "giuxtaposition/blink-cmp-copilot",
     after = { "copilot.lua" },
-    config = function()
-      require("copilot_cmp").setup()
-    end
   },
   {
     'nvimdev/lspsaga.nvim',
