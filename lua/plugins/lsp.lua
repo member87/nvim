@@ -17,6 +17,9 @@ return {
       'xzbdmw/colorful-menu.nvim'
     },
     opts = {
+      fuzzy = {
+        implementation = "lua"
+      },
       sources = {
         default = { 'copilot', 'lsp', 'path', 'snippets', 'buffer' },
         providers = {
