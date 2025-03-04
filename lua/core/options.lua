@@ -17,5 +17,7 @@ set.cursorline = true
 set.wrap = false
 set.signcolumn = "yes"
 set.laststatus = 3
+set.spell = true
+set.spelllang = "en_gb"
 
 vim.g.mapleader = " "
