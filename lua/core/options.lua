@@ -16,6 +16,13 @@ set.number = true
 set.cursorline = true
 set.wrap = false
 set.signcolumn = "yes"
+set.laststatus = 3
+set.spell = true
+set.spelllang = "en_gb"
 
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+vim.g.mapleader = " "
 
+
+vim.diagnostic.config({
+  severity_sort = true,
+})

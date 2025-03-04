@@ -1,49 +1,70 @@
-local l = require("core.plugins").load
-
-l({
+return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
       "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim"
+      "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-      require("mason").setup()
-      require("mason-lspconfig").setup()
-    end,
+      require('configs.lsp')
+    end
   },
   {
-    "hrsh7th/nvim-cmp",
-    config = function()
-      require("configs.cmp-nvim")
-    end,
-  },
-  {
-    "hrsh7th/cmp-nvim-lsp"
-  },
-  {
-    "hrsh7th/cmp-buffer"
-  },
-  {
-    "hrsh7th/cmp-path"
-  },
-  {
-    "hrsh7th/cmp-cmdline"
-  },
-  {
-    "ray-x/lsp_signature.nvim",
-    event = "VeryLazy",
-    opts = {},
-    config = function(_, opts) require 'lsp_signature'.setup(opts) end
-  },
-  {
-    "hrsh7th/vim-vsnip",
+    "saghen/blink.cmp",
     dependencies = {
-      "rafamadriz/friendly-snippets",
-    }
+      'rafamadriz/friendly-snippets',
+      'giuxtaposition/blink-cmp-copilot',
+      'xzbdmw/colorful-menu.nvim'
+    },
+    opts = {
+      fuzzy = {
+        implementation = "lua"
+      },
+      sources = {
+        default = { 'copilot', 'lsp', 'path', 'snippets', 'buffer' },
+        providers = {
+          copilot = {
+            name = "copilot",
+            module = "blink-cmp-copilot",
+            score_offset = 100,
+            async = true,
+          },
+        },
+      },
+      appearance = {
+        use_nvim_cmp_as_default = true,
+      },
+      completion = {
+        menu = {
+          draw = {
+            columns = { { "kind_icon" }, { "label", gap = 1 } },
+            components = {
+              label = {
+                text = function(ctx)
+                  return require("colorful-menu").blink_components_text(ctx)
+                end,
+                highlight = function(ctx)
+                  return require("colorful-menu").blink_components_highlight(ctx)
+                end,
+              },
+            },
+          },
+        },
+      },
+    },
   },
   {
-    "hrsh7th/cmp-vsnip"
+    "mfussenegger/nvim-lint",
+    config = function()
+      require('lint').linters_by_ft = {
+        astro = { 'eslint_d' },
+      }
+      vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+        callback = function()
+          require("lint").try_lint()
+        end,
+      })
+    end,
   },
   {
     "zbirenbaum/copilot.lua",
@@ -55,11 +76,8 @@ l({
     end
   },
   {
-    "zbirenbaum/copilot-cmp",
+    "giuxtaposition/blink-cmp-copilot",
     after = { "copilot.lua" },
-    config = function()
-      require("copilot_cmp").setup()
-    end
   },
   {
     'nvimdev/lspsaga.nvim',
@@ -67,5 +85,28 @@ l({
       require('lspsaga').setup({})
     end,
   },
-
-})
+  {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    lazy = false,
+    version = false, -- set this to "*" if you want to always pull the latest change, false to update on release
+    opts = {
+      -- add any opts here
+      provider = "copilot"
+    },
+    build = "make",
+    dependencies = {
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "zbirenbaum/copilot.lua",
+      {
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
+    },
+  }
+}

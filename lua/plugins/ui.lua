@@ -1,23 +1,14 @@
-local l = require("core.plugins").load
-
-l({
+return {
   {
-    "kyazdani42/nvim-tree.lua",
-    config = function()
-      require("configs.tree")
-    end,
-  },
-  {
-    "rcarriga/nvim-notify",
-    config = function()
-      vim.notify = require("notify")
-    end,
-  },
-  {
-    "norcalli/nvim-colorizer.lua",
-    config = function()
-      require("configs.colorizer")
-    end,
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+    opts = {
+      filesystem = { hijack_netrw_behavior = "open_current" }
+    }
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -33,35 +24,43 @@ l({
     end,
   },
   {
-    "akinsho/bufferline.nvim",
-    requires = 'nvim-tree/nvim-web-devicons',
-    config = function()
-      require("bufferline").setup {}
-    end
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    config = function()
-      require("configs.lualine")
-    end,
-  },
-  {
-    "kyazdani42/nvim-tree.lua",
-    config = function()
-      require("configs.tree")
-    end,
-  },
-  {
     "catppuccin/nvim",
     config = function()
       vim.cmd.colorscheme "catppuccin"
       require("catppuccin").setup({
         flavour = "mocha",
+        integrations = {
+          blink_cmp = true
+        }
       })
     end,
   },
   {
-    "kyazdani42/nvim-web-devicons"
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+    config = function()
+      require("noice").setup({
+        lsp = {
+          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+          },
+        },
+        -- you can enable a preset for easier configuration
+        presets = {
+          bottom_search = true,         -- use a classic bottom cmdline for search
+          command_palette = true,       -- position the cmdline and popupmenu together
+          long_message_to_split = true, -- long messages will be sent to a split
+          inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+          lsp_doc_border = false,       -- add a border to hover docs and signature help
+        },
+      })
+    end
   },
   {
     "folke/which-key.nvim",
@@ -86,9 +85,4 @@ l({
   {
     "onsails/lspkind.nvim",
   },
-  {
-    "sindrets/diffview.nvim"
-  },
-  {
-    "FabijanZulj/blame.nvim"
-  } })
+}

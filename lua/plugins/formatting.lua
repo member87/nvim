@@ -1,6 +1,4 @@
-local l = require("core.plugins").load
-
-l({
+return {
   {
     "windwp/nvim-ts-autotag",
     dependencies = {
@@ -19,22 +17,27 @@ l({
     end,
   },
   {
-    "numToStr/Comment.nvim",
-    config = function()
-      require('Comment').setup()
-    end,
-  },
-  {
-    "wellle/context.vim",
-  },
-  {
     "prettier/vim-prettier",
     config = function()
       vim.g['prettier#autoformat'] = 1
       vim.g['prettier#autoformat_require_pragma'] = 0
     end
-
-
-
-  }
-})
+  },
+  {
+    "stevearc/conform.nvim",
+    config = function()
+      require("conform").setup({
+        formatters_by_ft = {
+          astro = { "prettierd", "eslint_d" }
+        },
+        format_on_save = function(bufnr)
+          -- Disable with a global or buffer-local variable
+          if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+            return
+          end
+          return { timeout_ms = 500, lsp_format = "fallback" }
+        end
+      })
+    end
+  },
+}
