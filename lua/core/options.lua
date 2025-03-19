@@ -22,7 +22,6 @@ set.spelllang = "en_gb"
 
 vim.g.mapleader = " "
 
-
 vim.diagnostic.config({
   severity_sort = true,
 })
