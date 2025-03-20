@@ -16,9 +16,10 @@ return {
       'giuxtaposition/blink-cmp-copilot',
       'xzbdmw/colorful-menu.nvim'
     },
+    version = "v0.*",
     opts = {
       fuzzy = {
-        implementation = "lua"
+        implementation = "prefer_rust_with_warning"
       },
       sources = {
         default = { 'copilot', 'lsp', 'path', 'snippets', 'buffer' },
