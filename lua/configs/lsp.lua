@@ -5,7 +5,7 @@ require("mason-lspconfig").setup()
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 require("mason-lspconfig").setup_handlers {
-  function (server_name)
+  function(server_name)
     require("lspconfig")[server_name].setup({ capabilities = capabilities })
   end,
   ["tailwindcss"] = function()
@@ -15,7 +15,7 @@ require("mason-lspconfig").setup_handlers {
         tailwindCSS = {
           experimental = {
             classRegex = {
-              {    "cva\\(([^)(]*(?:\\([^)(]*(?:\\([^)(]*(?:\\([^)(]*\\)[^)(]*)*\\)[^)(]*)*\\)[^)(]*)*)\\)",}
+              { "cva\\(([^)(]*(?:\\([^)(]*(?:\\([^)(]*(?:\\([^)(]*\\)[^)(]*)*\\)[^)(]*)*\\)[^)(]*)*)\\)", }
             },
           },
         },
@@ -23,4 +23,3 @@ require("mason-lspconfig").setup_handlers {
     })
   end,
 }
-
