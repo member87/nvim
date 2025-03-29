@@ -23,16 +23,11 @@ return {
     end,
   },
   {
-    "catppuccin/nvim",
+    "rose-pine/neovim",
+    name = "rose-pine",
     config = function()
-      vim.cmd.colorscheme "catppuccin"
-      require("catppuccin").setup({
-        flavour = "mocha",
-        integrations = {
-          blink_cmp = true
-        }
-      })
-    end,
+      vim.cmd("colorscheme rose-pine")
+    end
   },
   {
     "folke/noice.nvim",
