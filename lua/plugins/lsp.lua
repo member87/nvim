@@ -70,10 +70,18 @@ return {
     "yetone/avante.nvim",
     event = "VeryLazy",
     lazy = false,
-    version = false, -- set this to "*" if you want to always pull the latest change, false to update on release
+    version = false,
     opts = {
-      -- add any opts here
-      provider = "copilot"
+      provider = "copilot",
+      copilot = {
+        model = "claude-3.7-sonnet",
+        endpoint = "https://api.githubcopilot.com",
+        allow_insecure = false,
+        timeout = 10 * 60 * 1000,
+        temperature = 0,
+        max_completion_tokens = 1000000,
+        reasoning_effort = "high",
+      }
     },
     build = "make",
     dependencies = {
