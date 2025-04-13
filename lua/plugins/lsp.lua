@@ -10,6 +10,23 @@ return {
     end
   },
   {
+    "xzbdmw/colorful-menu.nvim",
+    config = function()
+      require("colorful-menu").setup({
+        ls = {
+          lua_ls = {
+            arguments_hl = "@comment",
+          },
+          ts_ls = {
+            extra_info_hl = "@comment",
+          },
+        },
+        fallback_highlight = "@variable",
+        max_width = 60,
+      })
+    end,
+  },
+  {
     "saghen/blink.cmp",
     dependencies = {
       'rafamadriz/friendly-snippets',
@@ -20,6 +37,42 @@ return {
     opts = {
       fuzzy = {
         implementation = "prefer_rust_with_warning"
+      },
+      completion = {
+        documentation = { auto_show = true, auto_show_delay_ms = 0 },
+        menu = {
+          draw = {
+            columns = { { "kind_icon" }, { "label", gap = 1 } },
+            components = {
+              label = {
+                text = function(ctx)
+                  return require("colorful-menu").blink_components_text(ctx)
+                end,
+                highlight = function(ctx)
+                  return require("colorful-menu").blink_components_highlight(ctx)
+                end,
+              },
+              kind_icon = {
+                text = function(ctx)
+                  local kind_icon, _, _ = require('mini.icons').get('lsp', ctx.kind)
+                  return kind_icon
+                end,
+                -- (optional) use highlights from mini.icons
+                highlight = function(ctx)
+                  local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+                  return hl
+                end,
+              },
+              kind = {
+                -- (optional) use highlights from mini.icons
+                highlight = function(ctx)
+                  local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+                  return hl
+                end,
+              }
+            },
+          }
+        },
       },
       sources = {
         default = { 'copilot', 'lsp', 'path', 'snippets', 'buffer' },
