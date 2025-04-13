@@ -6,6 +6,7 @@ return {
   },
   {
     "folke/snacks.nvim",
+    lazy = false,
     opts = {
       bigfile = { enabled = true, },
       notifier = { enabled = true },
