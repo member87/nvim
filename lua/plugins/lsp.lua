@@ -39,8 +39,24 @@ return {
         implementation = "prefer_rust_with_warning"
       },
       completion = {
-        documentation = { auto_show = true, auto_show_delay_ms = 0 },
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 0,
+          window = {
+            border = "rounded"
+          }
+        },
+        list = {
+          selection = {
+            preselect = true,
+            auto_insert = function(ctx)
+              return ctx.mode ~= "cmdline"
+            end,
+          },
+        },
+
         menu = {
+          border = "rounded",
           draw = {
             columns = { { "kind_icon" }, { "label", gap = 1 } },
             components = {
