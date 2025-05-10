@@ -1,5 +1,4 @@
 local actions = require("telescope.actions")
-local helmet = 'test'
 
 require("telescope").setup({
   defaults = {

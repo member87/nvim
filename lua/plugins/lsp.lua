@@ -2,8 +2,8 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
+      { "williamboman/mason.nvim",           version = "1.11.0" },
+      { "williamboman/mason-lspconfig.nvim", version = "1.32.0" },
     },
     config = function()
       require('configs.lsp')
@@ -143,7 +143,7 @@ return {
     opts = {
       provider = "copilot",
       copilot = {
-        model = "o4-mini",
+        model = "claude-3.5-sonnet",
         endpoint = "https://api.githubcopilot.com",
         allow_insecure = false,
         timeout = 10 * 60 * 1000,
