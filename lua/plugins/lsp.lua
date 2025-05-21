@@ -143,7 +143,7 @@ return {
     opts = {
       provider = "copilot",
       copilot = {
-        model = "claude-3.5-sonnet",
+        model = "gemini-2.5-pro",
         endpoint = "https://api.githubcopilot.com",
         allow_insecure = false,
         timeout = 10 * 60 * 1000,
