@@ -142,14 +142,18 @@ return {
     version = false,
     opts = {
       provider = "copilot",
-      copilot = {
-        model = "gemini-2.5-pro",
-        endpoint = "https://api.githubcopilot.com",
-        allow_insecure = false,
-        timeout = 10 * 60 * 1000,
-        temperature = 0,
-        max_completion_tokens = 1000000,
-        reasoning_effort = "high",
+      providers = {
+        copilot = {
+          model = "claude-sonnet-4",
+          endpoint = "https://api.githubcopilot.com",
+          allow_insecure = false,
+          timeout = 10 * 60 * 1000,
+          max_completion_tokens = 1000000,
+          reasoning_effort = "high",
+          extra_request_body = {
+            temperature = 0
+          }
+        }
       }
     },
     build = "make",
