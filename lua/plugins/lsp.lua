@@ -2,12 +2,42 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      { "williamboman/mason.nvim",           version = "1.11.0" },
-      { "williamboman/mason-lspconfig.nvim", version = "1.32.0" },
+      { "williamboman/mason.nvim" },
+      { "williamboman/mason-lspconfig.nvim" }
     },
-    config = function()
-      require('configs.lsp')
-    end
+    opts = {
+      servers = {
+        ["*"] = {
+          capabilities = {
+            workspace = {
+              fileOperations = {
+                didRename = true,
+                willRename = true,
+              },
+            },
+          },
+        }
+      }
+    },
+    config = vim.schedule_wrap(function(_, opts)
+      require("mason").setup()
+      local function configure(server)
+        if server == "*" then
+          return false
+        end
+        local sopts = opts.servers[server]
+        sopts = sopts == true and {} or (not sopts) and { enabled = false } or sopts
+
+        local setup = opts.setup[server] or opts.setup["*"]
+        vim.lsp.config(server, sopts) -- configure the server
+      end
+
+      local install = vim.tbl_filter(configure, vim.tbl_keys(opts.servers))
+      require("mason-lspconfig").setup({
+        ensure_installed = vim.list_extend(install, {}),
+        automatic_enable = { exclude = mason_exclude },
+      })
+    end)
   },
   {
     "xzbdmw/colorful-menu.nvim",
