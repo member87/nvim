@@ -1,22 +1,5 @@
 return {
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-    },
-    opts = {
-      filesystem = { hijack_netrw_behavior = "open_current" }
-    }
-  },
-  {
-    "nvim-telescope/telescope.nvim",
-    cmd = "Telescope",
-    config = function()
-      require("configs.telescope")
-    end,
-  },
-  {
     "nvim-treesitter/nvim-treesitter",
     config = function()
       require("configs.treesitter")
@@ -61,20 +44,6 @@ return {
     config = function()
       require("configs.whichkey")
     end,
-  },
-  {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require("gitsigns").setup({
-        current_line_blame = true,
-        current_line_blame_opts = {
-          virt_text = true,
-          virt_text_pos = "eol", -- "eol" | "overlay" | "right_align"
-          delay = 500,
-          ignore_whitespace = false,
-        },
-      })
-    end
   },
   {
     "onsails/lspkind.nvim",

@@ -5,24 +5,6 @@ return {
     "nvim-lua/plenary.nvim"
   },
   {
-    "folke/snacks.nvim",
-    lazy = false,
-    opts = {
-      bigfile = { enabled = true, },
-      notifier = { enabled = true },
-      lazygit = { enabled = true },
-      git = { enabled = true },
-      gitbrowse = { enabled = true },
-      scroll = { enabled = true },
-      dashboard = { enabled = true },
-      indent = {
-        enabled = true,
-        indent = { only_scope = true }
-      },
-      statuscolumn = { enabled = false },
-    },
-  },
-  {
     "echasnovski/mini.nvim",
     version = false,
     config = function()

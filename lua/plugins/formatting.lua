@@ -12,9 +12,6 @@ return {
   },
   {
     "windwp/nvim-autopairs",
-    config = function()
-      require("configs.nvim-autopairs")
-    end,
   },
   {
     "prettier/vim-prettier",
@@ -25,20 +22,18 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    config = function()
-      require("conform").setup({
-        formatters_by_ft = {
-          astro = { "prettierd", "eslint_d" },
-          nix = { "alejandra" }
-        },
-        format_on_save = function(bufnr)
-          -- Disable with a global or buffer-local variable
-          if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-            return
-          end
-          return { timeout_ms = 500, lsp_format = "fallback" }
+    opts = {
+      lsp_format = "fallback",
+      formatters_by_ft = {
+        astro = { "prettierd", "eslint_d" },
+        nix = { "alejandra" }
+      },
+      format_on_save = function(bufnr)
+        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+          return
         end
-      })
-    end
+        return { timeout_ms = 500, lsp_format = "fallback" }
+      end
+    }
   },
 }
