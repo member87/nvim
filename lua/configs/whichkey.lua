@@ -4,7 +4,7 @@ wk.setup()
 
 wk.add({
   { "<leader>v",  "<cmd>vsplit<CR>",                                        desc = "Split vertically" },
-  { "<leader>s",  "<cmd>split<CR>",                                         desc = "Split horizontally" },
+  { "<leader>h",  "<cmd>split<CR>",                                         desc = "Split horizontally" },
   { "<leader>q",  "<cmd>q<CR>",                                             desc = "Quit window" },
   { "K",          function() return vim.lsp.buf.hover() end,                desc = "Hover" },
   { "gK",         function() return vim.lsp.buf.signature_help() end,       desc = "Signature Help" },
