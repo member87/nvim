@@ -1,12 +1,13 @@
 return {
   {
     "saghen/blink.cmp",
+    branch = "main",
     dependencies = {
+      'saghen/blink.lib',
       'rafamadriz/friendly-snippets',
       'giuxtaposition/blink-cmp-copilot',
       'xzbdmw/colorful-menu.nvim'
     },
-    version = "v0.*",
     opts = {
       fuzzy = {
         implementation = "prefer_rust_with_warning"

@@ -68,6 +68,7 @@ return {
       { "<leader>sd",      function() Snacks.picker.diagnostics() end,               desc = "Diagnostics" },
       { "<leader>sD",      function() Snacks.picker.diagnostics_buffer() end,        desc = "Buffer Diagnostics" },
       { "<leader>sb",      function() Snacks.picker.lines() end,                     desc = "Buffer Lines" },
+      { "<leader>nh",      function() Snacks.notifier.show_history() end,            desc = "Show notification history" },
     }
   }
 }
