@@ -48,7 +48,7 @@ return {
                     if mini_icon then return mini_icon .. ctx.icon_gap end
                   end
 
-                  local icon = require("lspkind").symbolic(ctx.kind, { mode = "symbol" })
+                  local icon = require("lspkind").symbolic(ctx.kind)
                   return icon .. ctx.icon_gap
                 end,
 
