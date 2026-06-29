@@ -80,5 +80,9 @@ return {
   {
     "chrisgrieser/nvim-origami",
     event = "VeryLazy",
+  },
+  {
+    "OXY2DEV/markview.nvim",
+    lazy = false,
   }
 }

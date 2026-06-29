@@ -2,6 +2,7 @@ return {
   {
     "saghen/blink.cmp",
     branch = "main",
+    build = function() require('blink.cmp').build():pwait() end,
     dependencies = {
       'saghen/blink.lib',
       'rafamadriz/friendly-snippets',
@@ -9,8 +10,9 @@ return {
       'xzbdmw/colorful-menu.nvim'
     },
     opts = {
+      keymap = { preset = 'default' },
       fuzzy = {
-        implementation = "prefer_rust_with_warning"
+        implementation = "rust"
       },
       signature = { enabled = true },
       completion = {
