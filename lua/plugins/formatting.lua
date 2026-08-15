@@ -11,9 +11,6 @@ return {
     end
   },
   {
-    "windwp/nvim-autopairs",
-  },
-  {
     "prettier/vim-prettier",
     config = function()
       vim.g['prettier#autoformat'] = 1

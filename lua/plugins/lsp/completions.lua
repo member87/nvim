@@ -6,7 +6,6 @@ return {
     dependencies = {
       'saghen/blink.lib',
       'rafamadriz/friendly-snippets',
-      'giuxtaposition/blink-cmp-copilot',
       'xzbdmw/colorful-menu.nvim'
     },
     opts = {
@@ -67,21 +66,9 @@ return {
         },
       },
       sources = {
-        default = { 'copilot', 'lsp', 'path', 'snippets', 'buffer' },
-        providers = {
-          copilot = {
-            name = "copilot",
-            module = "blink-cmp-copilot",
-            score_offset = 100,
-            async = true,
-          },
-        },
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
       },
     },
-  },
-  {
-    "giuxtaposition/blink-cmp-copilot",
-    after = { "copilot.lua" },
   },
   {
     'windwp/nvim-autopairs',

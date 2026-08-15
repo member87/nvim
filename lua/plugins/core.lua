@@ -1,5 +1,3 @@
-vim.cmd("highlight SnacksIndent guifg=#45475a")
-
 return {
   {
     "nvim-lua/plenary.nvim"

@@ -11,27 +11,26 @@ This is my personal Neovim configuration, designed for a modern development work
 
 ## Features
 
-- **UI**: Rose Pine theme, Neo-tree file explorer, Telescope for fuzzy finding, and Noice for enhanced UI elements
+- **UI**: Gruvbox theme, Snacks explorer/picker, and Noice for enhanced UI elements
 - **LSP**: Full Language Server Protocol integration with Mason for easy LSP management
-- **Completion**: [Blink CMP](https://github.com/saghen/blink.cmp) with Copilot integration
+- **Completion**: [Blink CMP](https://github.com/saghen/blink.cmp)
 - **Formatting**: Conform.nvim for code formatting with support for various languages
 - **Git**: Gitsigns for git information in the editor
 - **Quality of Life**: WhichKey for keybinding help, UFO for code folding, Autopairs for automatic bracket pairing
-- **AI Assistance**: Avante.nvim with Copilot integration using Claude 3.7 Sonnet
 
 ## Prerequisites
 
 - Neovim 0.11.0 or later
 - Git
 - A Nerd Font (for icons)
-- ripgrep (for Telescope)
+- ripgrep (for live grep)
 
 ## Installation
 
 1. Clone this repository to your Neovim configuration directory:
 
 ```bash
-git clone https://github.com/yourusername/nvim-config ~/.config/nvim
+git clone git@github.com:member87/nvim.git ~/.config/nvim
 ```
 
 2. Start Neovim. Lazy.nvim will automatically install all plugins.
@@ -39,16 +38,14 @@ git clone https://github.com/yourusername/nvim-config ~/.config/nvim
 ## Key Plugins
 
 ### Core
-- **[snacks.nvim](https://github.com/folke/snacks.nvim)**: Collection of UI enhancements
+- **[snacks.nvim](https://github.com/folke/snacks.nvim)**: Collection of UI enhancements (explorer, picker, dashboard, lazygit, notifier)
 - **[mini.nvim](https://github.com/echasnovski/mini.nvim)**: Collection of minimal, independent, and fast Lua modules
 - **[plenary.nvim](https://github.com/nvim-lua/plenary.nvim)**: Lua functions library used by many plugins
-- **[render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)**: Enhanced markdown rendering
+- **[markview.nvim](https://github.com/OXY2DEV/markview.nvim)**: Enhanced markdown rendering
 
 
 ### UI
-- **[rose-pine/neovim](https://github.com/rose-pine/neovim)**: Soho vibes for Neovim
-- **[neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)**: File explorer
-- **[telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)**: Fuzzy finder
+- **[gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim)**: Retro groove color scheme
 - **[noice.nvim](https://github.com/folke/noice.nvim)**: UI enhancement suite
 - **[which-key.nvim](https://github.com/folke/which-key.nvim)**: Keybinding guide popup
 - **[gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)**: Git integration
@@ -59,20 +56,17 @@ git clone https://github.com/yourusername/nvim-config ~/.config/nvim
 - **[nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)**: Configuration for built-in LSP client
 - **[mason.nvim](https://github.com/williamboman/mason.nvim)**: Package manager for LSP servers
 - **[blink.cmp](https://github.com/saghen/blink.cmp)**: Modern completion engine
-- **[copilot.lua](https://github.com/zbirenbaum/copilot.lua)**: GitHub Copilot integration
-- **[lspsaga.nvim](https://github.com/nvimdev/lspsaga.nvim)**: UI enhancement for LSP
+- **[tiny-code-action.nvim](https://github.com/rachartier/tiny-code-action.nvim)**: UI for LSP code actions
 - **[colorful-menu.nvim](https://github.com/xzbdmw/colorful-menu.nvim)**: Syntax highlighted completion items
+- **[lspkind.nvim](https://github.com/onsails/lspkind.nvim)**: VS Code-like icons for completion items
+- **[lazydev.nvim](https://github.com/folke/lazydev.nvim)**: Lua development for Neovim config
 
 ### Formatting & Syntax
 - **[conform.nvim](https://github.com/stevearc/conform.nvim)**: Formatting engine
-- **[nvim-lint](https://github.com/mfussenegger/nvim-lint)**: Asynchronous linting framework
 - **[nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)**: Advanced syntax highlighting
 - **[nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)**: Auto close and rename HTML tags
 - **[nvim-autopairs](https://github.com/windwp/nvim-autopairs)**: Auto pair brackets and quotes
 - **[vim-prettier](https://github.com/prettier/vim-prettier)**: Prettier formatting integration
-
-### AI Assistant
-- **[avante.nvim](https://github.com/yetone/avante.nvim)**: AI-powered coding assistant with Claude 3.7 Sonnet
 
 ## Structure
 
